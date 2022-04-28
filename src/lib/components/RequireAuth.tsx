@@ -1,18 +1,21 @@
 import React from "react";
 import { Navigate } from "react-router-dom";
 
-import { Dashboard } from "../components";
-
 type RequireAuthProps = {
   redirectTo: string;
+  children: JSX.Element;
 };
 
 export const RequireAuth: React.FunctionComponent<RequireAuthProps> = ({
   redirectTo,
+  children,
 }) => {
-  if (localStorage.getItem("token") === null) {
+  if (
+    localStorage.getItem("token") === null ||
+    !localStorage.getItem("token")
+  ) {
     return <Navigate to={redirectTo} />;
   }
 
-  return <Dashboard />;
+  return <>{children}</>;
 };

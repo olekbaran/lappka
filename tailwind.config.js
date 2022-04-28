@@ -10,6 +10,7 @@ module.exports = {
         "lappka-dark-grey": "#1E2022",
         "lappka-white": "#FFFFFF",
         "lappka-dark-white": "#F6F6F6",
+        "lappka-red": "#ff453a",
       },
       screens: {
         "galaxy-fold": { raw: "(max-width: 329px)" },
