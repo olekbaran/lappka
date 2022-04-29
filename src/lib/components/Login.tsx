@@ -1,15 +1,15 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 
-import { Images } from "../../assets";
-import { InputText } from "../components";
+import { Images } from "assets";
 import {
+  InputText,
   UserIcon,
   LockIcon,
   FacebookIcon,
   GoogleIcon,
   ErrorIcon,
-} from "../components";
+} from "lib/components";
 
 function loginUser(login: string, password: string) {
   if (login === "admin" && password === "admin") {
@@ -70,7 +70,7 @@ export const Login = () => {
     <main className="flex justify-center items-center h-[40rem] :w-[39rem] md:my-8 md:min-h-[calc(100vh_-_4rem)] min-h-screen md:bg-lappka-dark-white">
       <div className="flex flex-col justify-center md:h-[40rem] md:w-[39rem] relative p-8 rounded-3xl bg-lappka-white md:shadow-xl w-screen h-screen min-h-fit">
         <img
-          src={Images.Logo}
+          src={Images.LogoLogin}
           alt="Logo Łappka"
           className="my-0 mx-auto mb-6 selection:bg-lappka-green"
         />
