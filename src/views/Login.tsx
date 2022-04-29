@@ -1,21 +1,21 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 
-import { Images } from "assets";
+import { Images } from "assets/images";
+import { InputField } from "components";
 import {
-  InputText,
   UserIcon,
   LockIcon,
   FacebookIcon,
   GoogleIcon,
   ErrorIcon,
-} from "lib/components";
+} from "assets/icons";
 
-function loginUser(login: string, password: string) {
+const loginUser = (login: string, password: string) => {
   if (login === "admin" && password === "admin") {
     return 1234;
   }
-}
+};
 
 export const Login = () => {
   const navigate = useNavigate();
@@ -82,21 +82,25 @@ export const Login = () => {
           onSubmit={handleSubmit}
           className="flex flex-col items-center md:px-28"
         >
-          <InputText
+          <InputField
             type="text"
             name="login"
             placeholder="login"
             icon={<UserIcon />}
-            setValueHook={setLogin}
             isEmpty={isLoginEmpty}
+            onChange={(e) => {
+              setLogin(e.target.value);
+            }}
           />
-          <InputText
+          <InputField
             type="password"
             name="password"
             placeholder="hasło"
             icon={<LockIcon />}
-            setValueHook={setPassword}
             isEmpty={isPasswordEmpty}
+            onChange={(e) => {
+              setPassword(e.target.value);
+            }}
           />
           <div className="flex items-center justify-between galaxy-fold:justify-center mt-6 w-full galaxy-fold:flex-col">
             <div className="flex items-center mr-2 galaxy-fold:mr-0">

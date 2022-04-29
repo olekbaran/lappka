@@ -1,23 +1,17 @@
 import React from "react";
 import { useNavigate, NavLink } from "react-router-dom";
 
-import { Images } from "assets";
-import { ListElement, LogoutIcon } from "lib/components";
-
-interface PagesContent {
-  name: string;
-  icon: JSX.Element;
-  slug: string;
-}
+import { Images } from "assets/images";
+import { LogoutIcon } from "assets/icons";
+import { AppRoutes } from "common/AppRoutes";
+import { ListElement } from "components";
 
 type SideBarProps = {
-  pages: PagesContent[];
   isShown: boolean;
   children: JSX.Element;
 };
 
 export const SideBar: React.FunctionComponent<SideBarProps> = ({
-  pages,
   isShown,
   children,
 }) => {
@@ -46,10 +40,10 @@ export const SideBar: React.FunctionComponent<SideBarProps> = ({
         <hr className="h-px w-full mt-4 bg-lappka-light-blue" />
         <nav className="w-full px-8 lg:px-6 md:px-4 mt-8">
           <ul>
-            {pages.map((page) => (
-              <ListElement key={page.slug}>
+            {AppRoutes.map((Route) => (
+              <ListElement key={Route.slug}>
                 <NavLink
-                  to={`/${page.slug}`}
+                  to={`/${Route.slug}`}
                   className={({ isActive }) =>
                     isActive
                       ? "w-full h-full pl-4 rounded-md bg-lappka-green font-bold text-lappka-white selection:text-lappka-green selection:bg-lappka-white"
@@ -57,8 +51,8 @@ export const SideBar: React.FunctionComponent<SideBarProps> = ({
                   }
                 >
                   <div className="flex items-center h-full w-full">
-                    {page.icon}
-                    <span className="ml-4">{page.name}</span>
+                    {Route.icon}
+                    <span className="ml-4">{Route.name}</span>
                   </div>
                 </NavLink>
               </ListElement>

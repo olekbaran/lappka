@@ -1,9 +1,10 @@
 import React from "react";
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 
-import { Login, RequireAuth, Dashboard } from "lib/components";
+import { Login, Dashboard } from "views";
+import { RequireAuth } from "components";
 
-const App = () => {
+export const App = () => {
   return (
     <BrowserRouter>
       <Routes>
@@ -21,5 +22,3 @@ const App = () => {
     </BrowserRouter>
   );
 };
-
-export default App;

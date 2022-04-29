@@ -1,6 +1,6 @@
 import React from "react";
 
-export const AnimalCardsIcon = () => (
+export const PetCardsIcon = () => (
   <svg
     width="24"
     height="25"
