@@ -15,7 +15,10 @@ export const PetCardElement: React.FunctionComponent<PetCardElementProps> = ({
   breed,
   gender,
 }) => (
-  <div className="w-[455px] h-[34rem] bg-lappka-white shadow-lg rounded-2xl">
+  <div
+    style={{ width: "min(100%, 455px)" }}
+    className="h-[34rem] bg-lappka-white shadow-lg rounded-2xl"
+  >
     <img src={image} alt={name} className="mb-2 selection:bg-lappka-green" />
     <div className="flex items-center justify-between px-6">
       <div>

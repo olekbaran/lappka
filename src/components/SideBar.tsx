@@ -18,6 +18,7 @@ export const SideBar: React.FunctionComponent<SideBarProps> = ({
   const navigate = useNavigate();
 
   const logout = () => {
+    sessionStorage.removeItem("token");
     localStorage.removeItem("token");
     navigate("/");
   };

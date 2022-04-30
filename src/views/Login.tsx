@@ -21,6 +21,7 @@ export const Login = () => {
   const navigate = useNavigate();
   const [login, setLogin] = useState("");
   const [password, setPassword] = useState("");
+  const [rememberMe, setRememberMe] = useState("");
   const [isLoginEmpty, setIsLoginEmpty] = useState(false);
   const [isPasswordEmpty, setIsPasswordEmpty] = useState(false);
   const [isAccount, setIsAccount] = useState(true);
@@ -42,10 +43,15 @@ export const Login = () => {
     if (login && password) {
       const token = loginUser(login, password);
       if (token) {
-        localStorage.setItem("token", `${token}`);
+        if (rememberMe === "on") {
+          localStorage.setItem("token", `${token}`);
+        } else {
+          sessionStorage.setItem("token", `${token}`);
+        }
         navigate("/dashboard");
       } else {
         localStorage.removeItem("token");
+        sessionStorage.removeItem("token");
         setIsAccount(false);
         setTimeout(() => {
           setIsAccount(true);
@@ -59,8 +65,10 @@ export const Login = () => {
 
   useEffect(() => {
     if (
-      localStorage.getItem("token") &&
-      localStorage.getItem("token") !== null
+      (localStorage.getItem("token") &&
+        localStorage.getItem("token") !== null) ||
+      (sessionStorage.getItem("token") &&
+        sessionStorage.getItem("token") !== null)
     ) {
       navigate("/dashboard");
     }
@@ -108,6 +116,9 @@ export const Login = () => {
                 type="checkbox"
                 name="remember-me"
                 id="remember-me"
+                onChange={(e) => {
+                  setRememberMe(e.target.value);
+                }}
                 className="form-checkbox rounded border border-solid border-lappka-light-grey text-lappka-green cursor-pointer checked:border-0 focus:ring-transparent"
               />
               <label

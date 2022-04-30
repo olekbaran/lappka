@@ -11,8 +11,10 @@ export const RequireAuth: React.FunctionComponent<RequireAuthProps> = ({
   children,
 }) => {
   if (
-    localStorage.getItem("token") === null ||
-    !localStorage.getItem("token")
+    (localStorage.getItem("token") === null ||
+      !localStorage.getItem("token")) &&
+    (sessionStorage.getItem("token") === null ||
+      !sessionStorage.getItem("token"))
   ) {
     return <Navigate to={redirectTo} />;
   }
