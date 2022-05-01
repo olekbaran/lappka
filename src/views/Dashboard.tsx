@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 
 import { Images } from "assets/images";
-import { Header, SideBar, PetCardElement } from "components";
+import { Header, SideBar, PetCard } from "components";
 import { MenuIcon, CloseIcon } from "assets/icons";
 
 export const Dashboard = () => {
@@ -43,15 +43,19 @@ export const Dashboard = () => {
           <h1 className="text-xl text-left text-lappka-primary-grey mb-8 selection:bg-lappka-green selection:text-lappka-white">
             Zwierzęta w schronisku
           </h1>
-          <ul>
-            <li>
-              <PetCardElement
-                image={Images.Moniak}
-                name="Moniak"
-                breed="Kundelek"
-                gender="male"
-              />
-            </li>
+          <ul className="flex flex-wrap gap-24">
+            <PetCard
+              image={Images.Moniak}
+              name="Moniak"
+              breed="Kundelek"
+              gender="male"
+              details={[
+                { title: "Wiek", content: "1 rok" },
+                { title: "Kolor", content: "Czarny" },
+                { title: "Waga", content: "1.2 kg" },
+                { title: "Sterylizacja", content: "Tak" },
+              ]}
+            />
           </ul>
         </section>
       </div>

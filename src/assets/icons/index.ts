@@ -11,3 +11,4 @@ export { PetCardsIcon } from "./PetCardsIcon";
 export { VolunteeringIcon } from "./VolunteeringIcon";
 export { LogoutIcon } from "./LogoutIcon";
 export { MaleIcon } from "./MaleIcon";
+export { FemaleIcon } from "./FemaleIcon";
