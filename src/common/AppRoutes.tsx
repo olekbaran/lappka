@@ -3,38 +3,38 @@ import {
   MessageIcon,
   PetCardsIcon,
   VolunteeringIcon,
-} from "assets/icons";
+} from 'assets/icons';
 
 export const Slugs = {
   auth: {
-    dashboard: "dashboard",
-    messages: "wiadomości",
-    petCards: "karty-zwierząt",
-    volunteering: "wolontariat",
+    dashboard: 'dashboard',
+    messages: 'wiadomosci',
+    petCards: 'karty-zwierzat',
+    volunteering: 'wolontariat',
   },
   default: {
-    root: "/",
+    root: '/',
   },
 };
 
 export const AppRoutes = [
   {
-    name: "Dashboard",
+    name: 'Dashboard',
     icon: <DashboardIcon />,
     slug: Slugs.auth.dashboard,
   },
   {
-    name: "Wiadomości",
+    name: 'Wiadomości',
     icon: <MessageIcon />,
     slug: Slugs.auth.messages,
   },
   {
-    name: "Karty zwierząt",
+    name: 'Karty zwierząt',
     icon: <PetCardsIcon />,
     slug: Slugs.auth.petCards,
   },
   {
-    name: "Wolontariat",
+    name: 'Wolontariat',
     icon: <VolunteeringIcon />,
     slug: Slugs.auth.volunteering,
   },

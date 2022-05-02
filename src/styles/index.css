@@ -10,14 +10,22 @@
   padding: 0;
   border: 0;
   text-align: center;
-  font-family: "Ubuntu", sans-serif;
+  font-family: 'Ubuntu', sans-serif;
   scroll-behavior: smooth;
 }
 
-input[type="password"] {
+input[type='password'] {
   letter-spacing: 0.125rem;
 }
 
-input[type="password"]::placeholder {
+input[type='password']::placeholder {
   letter-spacing: normal;
+}
+
+.active-svg-white div svg path {
+  fill: white;
+}
+
+.active-svg-white div svg ellipse {
+  stroke: white;
 }

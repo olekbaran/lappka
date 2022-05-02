@@ -1,7 +1,7 @@
-import React from "react";
+import React from 'react';
 
-import { Images } from "assets/images";
-import { PetCard } from "components";
+import { Images } from 'assets/images';
+import { PetCard } from 'components';
 
 export const Dashboard = () => (
   <section className="p-8">
@@ -15,10 +15,10 @@ export const Dashboard = () => (
         breed="Kundelek"
         gender="male"
         details={[
-          { title: "Wiek", content: "1 rok" },
-          { title: "Kolor", content: "Czarny" },
-          { title: "Waga", content: "1.2 kg" },
-          { title: "Sterylizacja", content: "Tak" },
+          { title: 'Wiek', content: '1 rok' },
+          { title: 'Kolor', content: 'Czarny' },
+          { title: 'Waga', content: '1.2 kg' },
+          { title: 'Sterylizacja', content: 'Tak' },
         ]}
       />
     </ul>

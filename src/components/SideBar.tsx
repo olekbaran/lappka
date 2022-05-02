@@ -1,10 +1,10 @@
-import React from "react";
-import { useNavigate, NavLink } from "react-router-dom";
+import React from 'react';
+import { useNavigate, NavLink } from 'react-router-dom';
 
-import { Images } from "assets/images";
-import { LogoutIcon } from "assets/icons";
-import { AppRoutes } from "common/AppRoutes";
-import { ListElement } from "components";
+import { Images } from 'assets/images';
+import { LogoutIcon } from 'assets/icons';
+import { AppRoutes } from 'common/AppRoutes';
+import { ListElement } from 'components';
 
 type SideBarProps = {
   isShown: boolean;
@@ -18,15 +18,15 @@ export const SideBar: React.FunctionComponent<SideBarProps> = ({
   const navigate = useNavigate();
 
   const logout = () => {
-    sessionStorage.removeItem("token");
-    localStorage.removeItem("token");
-    navigate("/");
+    sessionStorage.removeItem('token');
+    localStorage.removeItem('token');
+    navigate('/');
   };
 
   return (
     <aside
       className={`${
-        isShown === true ? "translate-x-0" : "-translate-x-full"
+        isShown === true ? 'translate-x-0' : '-translate-x-full'
       } flex flex-col items-start justify-between md:translate-x-0 md:static absolute min-h-screen md:w-80 w-screen md:pt-4 pt-3.5 pb-12 bg-lappka-white transition duration-500 ease-in-out`}
     >
       <div className="w-full">
@@ -47,8 +47,8 @@ export const SideBar: React.FunctionComponent<SideBarProps> = ({
                   to={`/${Route.slug}`}
                   className={({ isActive }) =>
                     isActive
-                      ? "w-full h-full pl-4 rounded-md bg-lappka-green font-bold text-lappka-white selection:text-lappka-green selection:bg-lappka-white"
-                      : "font-medium ml-4"
+                      ? 'w-full h-full pl-4 active-svg-white rounded-md bg-lappka-green font-bold text-lappka-white selection:text-lappka-green selection:bg-lappka-white'
+                      : 'font-medium ml-4'
                   }
                 >
                   <div className="flex items-center h-full w-full">

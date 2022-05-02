@@ -1,6 +1,6 @@
-import LogoLogin from "./logo-login.png";
-import LogoDashboard from "./logo-dashboard.png";
-import Moniak from "./moniak.png";
+import LogoLogin from './logo-login.png';
+import LogoDashboard from './logo-dashboard.png';
+import Moniak from './moniak.png';
 
 export const Images = {
   LogoLogin,

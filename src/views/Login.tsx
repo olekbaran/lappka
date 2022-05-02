@@ -1,27 +1,28 @@
-import React, { useState, useEffect } from "react";
-import { useNavigate } from "react-router-dom";
+import React, { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 
-import { Images } from "assets/images";
-import { InputField } from "components";
+import { Images } from 'assets/images';
+import { InputField } from 'components';
 import {
   UserIcon,
   LockIcon,
   FacebookIcon,
   GoogleIcon,
   ErrorIcon,
-} from "assets/icons";
+} from 'assets/icons';
 
 const loginUser = (login: string, password: string) => {
-  if (login === "admin" && password === "admin") {
+  if (login === 'admin' && password === 'admin') {
     return 1234;
   }
+  return null;
 };
 
 export const Login = () => {
   const navigate = useNavigate();
-  const [login, setLogin] = useState("");
-  const [password, setPassword] = useState("");
-  const [rememberMe, setRememberMe] = useState("");
+  const [login, setLogin] = useState('');
+  const [password, setPassword] = useState('');
+  const [rememberMe, setRememberMe] = useState('');
   const [isLoginEmpty, setIsLoginEmpty] = useState(false);
   const [isPasswordEmpty, setIsPasswordEmpty] = useState(false);
   const [isAccount, setIsAccount] = useState(true);
@@ -43,20 +44,20 @@ export const Login = () => {
     if (login && password) {
       const token = loginUser(login, password);
       if (token) {
-        if (rememberMe === "on") {
-          localStorage.setItem("token", `${token}`);
+        if (rememberMe === 'on') {
+          localStorage.setItem('token', `${token}`);
         } else {
-          sessionStorage.setItem("token", `${token}`);
+          sessionStorage.setItem('token', `${token}`);
         }
-        navigate("/dashboard");
+        navigate('/dashboard');
       } else {
-        localStorage.removeItem("token");
-        sessionStorage.removeItem("token");
+        localStorage.removeItem('token');
+        sessionStorage.removeItem('token');
         setIsAccount(false);
         setTimeout(() => {
           setIsAccount(true);
-          setLogin("");
-          setPassword("");
+          setLogin('');
+          setPassword('');
           event.target.reset();
         }, 2200);
       }
@@ -65,12 +66,12 @@ export const Login = () => {
 
   useEffect(() => {
     if (
-      (localStorage.getItem("token") &&
-        localStorage.getItem("token") !== null) ||
-      (sessionStorage.getItem("token") &&
-        sessionStorage.getItem("token") !== null)
+      (localStorage.getItem('token') &&
+        localStorage.getItem('token') !== null) ||
+      (sessionStorage.getItem('token') &&
+        sessionStorage.getItem('token') !== null)
     ) {
-      navigate("/dashboard");
+      navigate('/dashboard');
     }
   });
 
@@ -137,7 +138,7 @@ export const Login = () => {
           </div>
           <button
             className={`uppercase text-lappka-white font-bold w-full h-14 rounded-xl drop-shadow-lg mt-12 focus:outline-none selection:bg-lappka-white selection:text-lappka-green transition ease-out duration-500 ${
-              isAccount === false ? "bg-lappka-red" : "bg-lappka-green"
+              isAccount === false ? 'bg-lappka-red' : 'bg-lappka-green'
             }`}
           >
             Zaloguj się
@@ -147,8 +148,8 @@ export const Login = () => {
           <div
             className={`absolute mt-3 ${
               isAccount === false
-                ? "flex items-center justify-center"
-                : "hidden"
+                ? 'flex items-center justify-center'
+                : 'hidden'
             }`}
           >
             <ErrorIcon />

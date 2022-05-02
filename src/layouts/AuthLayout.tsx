@@ -1,7 +1,7 @@
-import React, { useState } from "react";
+import React, { useState } from 'react';
 
-import { Header, SideBar } from "components";
-import { MenuIcon, CloseIcon } from "assets/icons";
+import { Header, SideBar } from 'components';
+import { MenuIcon, CloseIcon } from 'assets/icons';
 
 type AuthLayoutProps = {
   currentPage: string;
@@ -31,7 +31,12 @@ export const AuthLayout: React.FunctionComponent<AuthLayoutProps> = ({
     <main className="max-w-[2160px] mx-auto flex drop-shadow-lg">
       <SideBar isShown={isMobileNavShown}>
         <div className="md:hidden flex items-center">
-          <div onClick={closeMobileNav} className="cursor-pointer">
+          <div
+            aria-hidden
+            onClick={closeMobileNav}
+            onKeyDown={closeMobileNav}
+            className="cursor-pointer"
+          >
             <CloseIcon />
           </div>
           <p className="md:ml-0 ml-8 xs:hidden text-xl font-bold text-lappka-primary-grey selection:text-lappka-white selection:bg-lappka-green">
@@ -47,7 +52,9 @@ export const AuthLayout: React.FunctionComponent<AuthLayoutProps> = ({
           avatar={avatar}
         >
           <div
+            aria-hidden
             onClick={openMobileNav}
+            onKeyDown={openMobileNav}
             className="md:hidden block cursor-pointer"
           >
             <MenuIcon />

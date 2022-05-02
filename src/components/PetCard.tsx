@@ -1,7 +1,7 @@
-import React from "react";
+import React from 'react';
 
-import { MaleIcon, FemaleIcon } from "assets/icons";
-import { PetDetailsElement } from "components";
+import { MaleIcon, FemaleIcon } from 'assets/icons';
+import { PetDetailsElement } from 'components';
 
 interface PetCardDetails {
   title: string;
@@ -23,11 +23,12 @@ export const PetCard: React.FunctionComponent<PetCardProps> = ({
   gender,
   details,
 }) => (
-  <li
-    style={{ width: "min(100%, 455px)" }}
-    className="pb-9 bg-lappka-white shadow-lg rounded-2xl"
-  >
-    <img src={image} alt={name} className="mb-2 selection:bg-lappka-green" />
+  <li className="w-full max-w-[455px] pb-9 bg-lappka-white shadow-lg rounded-2xl">
+    <img
+      src={image}
+      alt={name}
+      className="rounded-t-[inherit] mb-2 selection:bg-lappka-green"
+    />
     <div className="flex items-center justify-between px-6">
       <div>
         <h2 className="text-3xl text-left font-bold text-lappka-pet-grey selection:bg-lappka-green selection:text-lappka-white">
@@ -37,7 +38,7 @@ export const PetCard: React.FunctionComponent<PetCardProps> = ({
           {breed}
         </h3>
       </div>
-      {gender === "male" ? <MaleIcon /> : <FemaleIcon />}
+      {gender === 'male' ? <MaleIcon /> : <FemaleIcon />}
     </div>
     <ul className="flex items-center flex-wrap px-6 mt-4 mb-6 gap-2.5">
       {details.map((detailsElement) => (
