@@ -1,7 +1,9 @@
 import React from "react";
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
+import { AppRoutes } from "common";
 
 import { Login, Dashboard } from "views";
+import { AuthLayout } from "layouts";
 import { RequireAuth } from "components";
 
 export const App = () => {
@@ -13,7 +15,14 @@ export const App = () => {
           path="/dashboard"
           element={
             <RequireAuth redirectTo="/">
-              <Dashboard />
+              <AuthLayout
+                userName="Robert G."
+                companyName="Nazwa firmy"
+                avatar="https://avatars.githubusercontent.com/u/74045117?v=4"
+                currentPage={AppRoutes[0].name}
+              >
+                <Dashboard />
+              </AuthLayout>
             </RequireAuth>
           }
         />

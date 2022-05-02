@@ -4,6 +4,7 @@ type HeaderProps = {
   currentPage: string;
   userName: string;
   companyName: string;
+  avatar: string;
   children: JSX.Element;
 };
 
@@ -11,6 +12,7 @@ export const Header: React.FunctionComponent<HeaderProps> = ({
   currentPage,
   userName,
   companyName,
+  avatar,
   children,
 }) => {
   return (
@@ -21,8 +23,8 @@ export const Header: React.FunctionComponent<HeaderProps> = ({
       </div>
       <div className="flex items-center ml-8">
         <img
-          src="https://avatars.githubusercontent.com/u/74045117?v=4"
-          alt=""
+          src={avatar}
+          alt="User avatar"
           className="w-9 h-9 mr-3 rounded-full selection:bg-lappka-green"
         />
         <div>
