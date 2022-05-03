@@ -5,3 +5,4 @@ export { ListElement } from './ListElement';
 export { Header } from './Header';
 export { PetCard } from './PetCard';
 export { PetDetailsElement } from './PetDetailsElement';
+export { Pagination } from './Pagination';

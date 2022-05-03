@@ -14,16 +14,16 @@ yarn check-types ||
 # Check ESLint Standards
 yarn check-lint ||
 (
-        echo '\n😤🏀 Get that weak s**t out of here!
-                ESLint check failed. Make the required changes listed above, add changes and try to commit again.'
+        echo '\n😤🏀 ESLint check failed.
+                Make the required changes listed above, add changes and try to commit again.'
         false;
 )
 
 # Check Prettier standards
 yarn check-format ||
 (
-    echo '\n🤢🤮 Its RAW - Your styling looks disgusting.
-            Prettier check failed. Run yarn format, add changes and try commit again.'
+    echo '\n🤢🤮 Prettier check failed.
+            Run yarn format, add changes and try commit again.'
     false;
 )
 
