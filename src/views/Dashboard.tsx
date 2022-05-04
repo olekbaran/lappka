@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 
-import { PetCard, Pagination } from 'components';
+import { LoadingAnimation, Error, PetCard, Pagination } from 'components';
 
 interface Details {
   title: string;
@@ -18,14 +18,26 @@ interface PetObject {
 }
 
 export const Dashboard = () => {
+  const [loading, setLoading] = useState(false);
+  const [showError, setShowError] = useState(false);
   const [pets, setPets] = useState<PetObject[] | null>(null);
   const [currentPage, setCurrentPage] = useState(1);
-  const [petsPerPage] = useState(9);
+  const [petsPerPage] = useState(6);
 
   useEffect(() => {
+    setLoading(true);
     const fetchPets = async () => {
-      const res = await axios.get('./pets.json');
-      setPets(res.data);
+      await axios
+        .get('./pets.json')
+        .then((response) => response.data)
+        .then((data) => {
+          setPets(data);
+          setLoading(false);
+        })
+        .catch(() => {
+          setLoading(false);
+          setShowError(true);
+        });
     };
 
     fetchPets();
@@ -38,27 +50,43 @@ export const Dashboard = () => {
   const paginate = (pageNumber: number) => setCurrentPage(pageNumber);
 
   return (
-    <section className="flex flex-col justify-between min-h-[calc(100vh-4.375rem)] px-8 pt-8 pb-12">
+    <section
+      className={`flex flex-col min-h-[calc(100vh-4.375rem)] px-8 pt-8 pb-12 ${
+        loading === true || showError === true
+          ? 'justify-center items-center'
+          : 'justify-between'
+      }`}
+    >
       <div>
-        <h1 className="text-xl text-left text-lappka-primary-grey mb-8 selection:bg-lappka-green selection:text-lappka-white">
-          {pets?.length === 0 ? 'Nic tutaj nie ma' : 'Zwierzęta w schronisku'}
-        </h1>
-        <ul className="flex flex-wrap gap-24">
-          {currentPets?.map((pet) => (
-            <PetCard
-              key={pet.id}
-              image={pet.image}
-              name={pet.name}
-              breed={pet.breed}
-              gender={pet.gender}
-              details={pet.details}
-            />
-          ))}
-        </ul>
+        {loading === false && showError === false ? (
+          <h1 className="text-xl text-left text-lappka-primary-grey mb-8 selection:bg-lappka-green selection:text-lappka-white">
+            {pets?.length === 0 ? 'Nic tutaj nie ma' : 'Zwierzęta w schronisku'}
+          </h1>
+        ) : (
+          ''
+        )}
+        {showError === true ? <Error /> : ''}
+        {loading === true ? (
+          <LoadingAnimation />
+        ) : (
+          <ul className="flex flex-wrap gap-24">
+            {currentPets?.map((pet) => (
+              <PetCard
+                key={pet.id}
+                image={pet.image}
+                name={pet.name}
+                breed={pet.breed}
+                gender={pet.gender}
+                details={pet.details}
+              />
+            ))}
+          </ul>
+        )}
       </div>
       <Pagination
         petsPerPage={petsPerPage}
         totalPets={pets?.length}
+        currentPage={currentPage}
         paginate={paginate}
       />
     </section>

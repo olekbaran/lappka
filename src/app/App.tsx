@@ -1,8 +1,15 @@
 import React from 'react';
-import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
-import { AppRoutes } from 'common';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { appRoutes } from 'common';
 
-import { Login, Dashboard, Messages, PetCards, Volunteering } from 'views';
+import {
+  Login,
+  Dashboard,
+  Messages,
+  PetCards,
+  Volunteering,
+  Error404,
+} from 'views';
 import { AuthLayout } from 'layouts';
 import { RequireAuth } from 'components';
 
@@ -11,14 +18,14 @@ export const App = () => (
     <Routes>
       <Route path="/" element={<Login />} />
       <Route
-        path={`/${AppRoutes[0].slug}`}
+        path={`/${appRoutes[0].slug}`}
         element={
           <RequireAuth redirectTo="/">
             <AuthLayout
               userName="Robert G."
               companyName="Nazwa firmy"
               avatar="https://avatars.githubusercontent.com/u/74045117?v=4"
-              currentPage={AppRoutes[0].name}
+              currentPage={appRoutes[0].name}
             >
               <Dashboard />
             </AuthLayout>
@@ -26,14 +33,14 @@ export const App = () => (
         }
       />
       <Route
-        path={`/${AppRoutes[1].slug}`}
+        path={`/${appRoutes[1].slug}`}
         element={
           <RequireAuth redirectTo="/">
             <AuthLayout
               userName="Robert G."
               companyName="Nazwa firmy"
               avatar="https://avatars.githubusercontent.com/u/74045117?v=4"
-              currentPage={AppRoutes[1].name}
+              currentPage={appRoutes[1].name}
             >
               <Messages />
             </AuthLayout>
@@ -41,14 +48,14 @@ export const App = () => (
         }
       />
       <Route
-        path={`/${AppRoutes[2].slug}`}
+        path={`/${appRoutes[2].slug}`}
         element={
           <RequireAuth redirectTo="/">
             <AuthLayout
               userName="Robert G."
               companyName="Nazwa firmy"
               avatar="https://avatars.githubusercontent.com/u/74045117?v=4"
-              currentPage={AppRoutes[2].name}
+              currentPage={appRoutes[2].name}
             >
               <PetCards />
             </AuthLayout>
@@ -56,21 +63,21 @@ export const App = () => (
         }
       />
       <Route
-        path={`/${AppRoutes[3].slug}`}
+        path={`/${appRoutes[3].slug}`}
         element={
           <RequireAuth redirectTo="/">
             <AuthLayout
               userName="Robert G."
               companyName="Nazwa firmy"
               avatar="https://avatars.githubusercontent.com/u/74045117?v=4"
-              currentPage={AppRoutes[3].name}
+              currentPage={appRoutes[3].name}
             >
               <Volunteering />
             </AuthLayout>
           </RequireAuth>
         }
       />
-      <Route path="*" element={<Navigate to="/dashboard" />} />
+      <Route path="*" element={<Error404 />} />
     </Routes>
   </BrowserRouter>
 );

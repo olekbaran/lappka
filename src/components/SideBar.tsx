@@ -1,9 +1,9 @@
 import React from 'react';
-import { useNavigate, NavLink } from 'react-router-dom';
+import { useNavigate, NavLink, Link } from 'react-router-dom';
 
 import { Images } from 'assets/images';
 import { LogoutIcon } from 'assets/icons';
-import { AppRoutes } from 'common/AppRoutes';
+import { appRoutes } from 'common/appRoutes';
 import { ListElement } from 'components';
 
 type SideBarProps = {
@@ -27,21 +27,23 @@ export const SideBar: React.FunctionComponent<SideBarProps> = ({
     <aside
       className={`${
         isShown === true ? 'translate-x-0' : '-translate-x-full'
-      } flex flex-col items-start justify-between md:translate-x-0 md:static absolute min-h-screen md:w-80 w-screen md:pt-4 pt-3.5 pb-12 bg-lappka-white transition duration-500 ease-in-out`}
+      } flex flex-col items-start justify-between z-10 md:translate-x-0 md:static absolute min-h-screen md:w-80 w-screen md:pt-4 pt-3.5 pb-12 bg-lappka-white transition duration-500 ease-in-out`}
     >
       <div className="w-full">
         <div className="px-8">
           {children}
-          <img
-            src={Images.LogoDashboard}
-            alt="Logo Łappka"
-            className="selection:bg-lappka-green md:mt-0 mt-4"
-          />
+          <Link to="/">
+            <img
+              src={Images.LogoDashboard}
+              alt="Logo Łappka"
+              className="selection:bg-lappka-green md:mt-0 mt-4"
+            />
+          </Link>
         </div>
         <hr className="h-px w-full mt-4 bg-lappka-light-blue" />
         <nav className="w-full px-8 lg:px-6 md:px-4 mt-8">
           <ul>
-            {AppRoutes.map((Route) => (
+            {appRoutes.map((Route) => (
               <ListElement key={Route.slug}>
                 <NavLink
                   to={`/${Route.slug}`}

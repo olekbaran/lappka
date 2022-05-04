@@ -27,7 +27,7 @@ export const Login = () => {
   const [isPasswordEmpty, setIsPasswordEmpty] = useState(false);
   const [isAccount, setIsAccount] = useState(true);
 
-  const handleSubmit = (event: React.ChangeEvent<any>) => {
+  const handleSubmit = (event: React.ChangeEvent<HTMLFormElement>) => {
     event.preventDefault();
     if (login.length === 0) {
       setIsLoginEmpty(true);
