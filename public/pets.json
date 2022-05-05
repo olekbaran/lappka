@@ -1,0 +1,325 @@
+[
+  {
+    "id": 1,
+    "image": "/pets-images/moniak.png",
+    "name": "Moniak1",
+    "breed": "Kundelek",
+    "gender": "male",
+    "details": [
+      { "title": "Wiek", "content": "1 rok" },
+      { "title": "Kolor", "content": "Czarny" },
+      { "title": "Waga", "content": "1.2 kg" },
+      { "title": "Sterylizacja", "content": "Tak" }
+    ]
+  },
+  {
+    "id": 2,
+    "image": "/pets-images/moniak.png",
+    "name": "Moniak2",
+    "breed": "Kundelek",
+    "gender": "male",
+    "details": [
+      { "title": "Wiek", "content": "1 rok" },
+      { "title": "Kolor", "content": "Czarny" },
+      { "title": "Waga", "content": "1.2 kg" },
+      { "title": "Sterylizacja", "content": "Tak" }
+    ]
+  },
+  {
+    "id": 3,
+    "image": "/pets-images/moniak.png",
+    "name": "Moniak3",
+    "breed": "Kundelek",
+    "gender": "male",
+    "details": [
+      { "title": "Wiek", "content": "1 rok" },
+      { "title": "Kolor", "content": "Czarny" },
+      { "title": "Waga", "content": "1.2 kg" },
+      { "title": "Sterylizacja", "content": "Tak" }
+    ]
+  },{
+    "id": 4,
+    "image": "/pets-images/moniak.png",
+    "name": "Moniak4",
+    "breed": "Kundelek",
+    "gender": "male",
+    "details": [
+      { "title": "Wiek", "content": "1 rok" },
+      { "title": "Kolor", "content": "Czarny" },
+      { "title": "Waga", "content": "1.2 kg" },
+      { "title": "Sterylizacja", "content": "Tak" }
+    ]
+  },
+  {
+    "id": 5,
+    "image": "/pets-images/moniak.png",
+    "name": "Moniak5",
+    "breed": "Kundelek",
+    "gender": "male",
+    "details": [
+      { "title": "Wiek", "content": "1 rok" },
+      { "title": "Kolor", "content": "Czarny" },
+      { "title": "Waga", "content": "1.2 kg" },
+      { "title": "Sterylizacja", "content": "Tak" }
+    ]
+  },
+  {
+    "id": 6,
+    "image": "/pets-images/moniak.png",
+    "name": "Moniak6",
+    "breed": "Kundelek",
+    "gender": "male",
+    "details": [
+      { "title": "Wiek", "content": "1 rok" },
+      { "title": "Kolor", "content": "Czarny" },
+      { "title": "Waga", "content": "1.2 kg" },
+      { "title": "Sterylizacja", "content": "Tak" }
+    ]
+  },
+  {
+    "id": 7,
+    "image": "/pets-images/moniak.png",
+    "name": "Moniak7",
+    "breed": "Kundelek",
+    "gender": "male",
+    "details": [
+      { "title": "Wiek", "content": "1 rok" },
+      { "title": "Kolor", "content": "Czarny" },
+      { "title": "Waga", "content": "1.2 kg" },
+      { "title": "Sterylizacja", "content": "Tak" }
+    ]
+  },
+  {
+    "id": 8,
+    "image": "/pets-images/moniak.png",
+    "name": "Moniak8",
+    "breed": "Kundelek",
+    "gender": "male",
+    "details": [
+      { "title": "Wiek", "content": "1 rok" },
+      { "title": "Kolor", "content": "Czarny" },
+      { "title": "Waga", "content": "1.2 kg" },
+      { "title": "Sterylizacja", "content": "Tak" }
+    ]
+  },
+  {
+    "id": 9,
+    "image": "/pets-images/moniak.png",
+    "name": "Moniak9",
+    "breed": "Kundelek",
+    "gender": "male",
+    "details": [
+      { "title": "Wiek", "content": "1 rok" },
+      { "title": "Kolor", "content": "Czarny" },
+      { "title": "Waga", "content": "1.2 kg" },
+      { "title": "Sterylizacja", "content": "Tak" }
+    ]
+  },
+  {
+    "id": 10,
+    "image": "/pets-images/moniak.png",
+    "name": "Moniak10",
+    "breed": "Kundelek",
+    "gender": "male",
+    "details": [
+      { "title": "Wiek", "content": "1 rok" },
+      { "title": "Kolor", "content": "Czarny" },
+      { "title": "Waga", "content": "1.2 kg" },
+      { "title": "Sterylizacja", "content": "Tak" }
+    ]
+  },
+  {
+    "id": 11,
+    "image": "/pets-images/moniak.png",
+    "name": "Moniak11",
+    "breed": "Kundelek",
+    "gender": "male",
+    "details": [
+      { "title": "Wiek", "content": "1 rok" },
+      { "title": "Kolor", "content": "Czarny" },
+      { "title": "Waga", "content": "1.2 kg" },
+      { "title": "Sterylizacja", "content": "Tak" }
+    ]
+  },
+  {
+    "id": 12,
+    "image": "/pets-images/moniak.png",
+    "name": "Moniak12",
+    "breed": "Kundelek",
+    "gender": "male",
+    "details": [
+      { "title": "Wiek", "content": "1 rok" },
+      { "title": "Kolor", "content": "Czarny" },
+      { "title": "Waga", "content": "1.2 kg" },
+      { "title": "Sterylizacja", "content": "Tak" }
+    ]
+  },
+  {
+    "id": 13,
+    "image": "/pets-images/moniak.png",
+    "name": "Moniak13",
+    "breed": "Kundelek",
+    "gender": "male",
+    "details": [
+      { "title": "Wiek", "content": "1 rok" },
+      { "title": "Kolor", "content": "Czarny" },
+      { "title": "Waga", "content": "1.2 kg" },
+      { "title": "Sterylizacja", "content": "Tak" }
+    ]
+  },{
+    "id": 14,
+    "image": "/pets-images/moniak.png",
+    "name": "Moniak14",
+    "breed": "Kundelek",
+    "gender": "male",
+    "details": [
+      { "title": "Wiek", "content": "1 rok" },
+      { "title": "Kolor", "content": "Czarny" },
+      { "title": "Waga", "content": "1.2 kg" },
+      { "title": "Sterylizacja", "content": "Tak" }
+    ]
+  },
+  {
+    "id": 15,
+    "image": "/pets-images/moniak.png",
+    "name": "Moniak15",
+    "breed": "Kundelek",
+    "gender": "male",
+    "details": [
+      { "title": "Wiek", "content": "1 rok" },
+      { "title": "Kolor", "content": "Czarny" },
+      { "title": "Waga", "content": "1.2 kg" },
+      { "title": "Sterylizacja", "content": "Tak" }
+    ]
+  },
+  {
+    "id": 16,
+    "image": "/pets-images/moniak.png",
+    "name": "Moniak16",
+    "breed": "Kundelek",
+    "gender": "male",
+    "details": [
+      { "title": "Wiek", "content": "1 rok" },
+      { "title": "Kolor", "content": "Czarny" },
+      { "title": "Waga", "content": "1.2 kg" },
+      { "title": "Sterylizacja", "content": "Tak" }
+    ]
+  },
+  {
+    "id": 17,
+    "image": "/pets-images/moniak.png",
+    "name": "Moniak17",
+    "breed": "Kundelek",
+    "gender": "male",
+    "details": [
+      { "title": "Wiek", "content": "1 rok" },
+      { "title": "Kolor", "content": "Czarny" },
+      { "title": "Waga", "content": "1.2 kg" },
+      { "title": "Sterylizacja", "content": "Tak" }
+    ]
+  },
+  {
+    "id": 18,
+    "image": "/pets-images/moniak.png",
+    "name": "Moniak18",
+    "breed": "Kundelek",
+    "gender": "male",
+    "details": [
+      { "title": "Wiek", "content": "1 rok" },
+      { "title": "Kolor", "content": "Czarny" },
+      { "title": "Waga", "content": "1.2 kg" },
+      { "title": "Sterylizacja", "content": "Tak" }
+    ]
+  },
+  {
+    "id": 19,
+    "image": "/pets-images/moniak.png",
+    "name": "Moniak19",
+    "breed": "Kundelek",
+    "gender": "male",
+    "details": [
+      { "title": "Wiek", "content": "1 rok" },
+      { "title": "Kolor", "content": "Czarny" },
+      { "title": "Waga", "content": "1.2 kg" },
+      { "title": "Sterylizacja", "content": "Tak" }
+    ]
+  },
+  {
+    "id": 20,
+    "image": "/pets-images/moniak.png",
+    "name": "Moniak20",
+    "breed": "Kundelek",
+    "gender": "male",
+    "details": [
+      { "title": "Wiek", "content": "1 rok" },
+      { "title": "Kolor", "content": "Czarny" },
+      { "title": "Waga", "content": "1.2 kg" },
+      { "title": "Sterylizacja", "content": "Tak" }
+    ]
+  },
+  {
+    "id": 21,
+    "image": "/pets-images/moniak.png",
+    "name": "Moniak21",
+    "breed": "Kundelek",
+    "gender": "male",
+    "details": [
+      { "title": "Wiek", "content": "1 rok" },
+      { "title": "Kolor", "content": "Czarny" },
+      { "title": "Waga", "content": "1.2 kg" },
+      { "title": "Sterylizacja", "content": "Tak" }
+    ]
+  },
+  {
+    "id": 22,
+    "image": "/pets-images/moniak.png",
+    "name": "Moniak22",
+    "breed": "Kundelek",
+    "gender": "male",
+    "details": [
+      { "title": "Wiek", "content": "1 rok" },
+      { "title": "Kolor", "content": "Czarny" },
+      { "title": "Waga", "content": "1.2 kg" },
+      { "title": "Sterylizacja", "content": "Tak" }
+    ]
+  },
+  {
+    "id": 23,
+    "image": "/pets-images/moniak.png",
+    "name": "Moniak23",
+    "breed": "Kundelek",
+    "gender": "male",
+    "details": [
+      { "title": "Wiek", "content": "1 rok" },
+      { "title": "Kolor", "content": "Czarny" },
+      { "title": "Waga", "content": "1.2 kg" },
+      { "title": "Sterylizacja", "content": "Tak" }
+    ]
+  },
+  {
+    "id": 24,
+    "image": "/pets-images/moniak.png",
+    "name": "Moniak24",
+    "breed": "Kundelek",
+    "gender": "male",
+    "details": [
+      { "title": "Wiek", "content": "1 rok" },
+      { "title": "Kolor", "content": "Czarny" },
+      { "title": "Waga", "content": "1.2 kg" },
+      { "title": "Sterylizacja", "content": "Tak" }
+    ]
+  },
+  {
+    "id": 25,
+    "image": "/pets-images/moniak.png",
+    "name": "Moniak25",
+    "breed": "Kundelek",
+    "gender": "male",
+    "details": [
+      { "title": "Wiek", "content": "1 rok" },
+      { "title": "Kolor", "content": "Czarny" },
+      { "title": "Waga", "content": "1.2 kg" },
+      { "title": "Sterylizacja", "content": "Tak" }
+    ]
+  }
+]
