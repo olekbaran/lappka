@@ -7,6 +7,7 @@ import {
 
 export const appRoutes = {
   home: {
+    name: 'Strona główna',
     slug: '/',
   },
   dashboard: {

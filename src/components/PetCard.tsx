@@ -31,12 +31,12 @@ export const PetCard: React.FunctionComponent<PetCardProps> = ({
     />
     <div className="flex items-center flex-wrap gap-4 justify-between px-6">
       <div>
-        <h2 className="text-3xl mr-4 text-left font-bold text-lappka-pet-grey selection:bg-lappka-green selection:text-lappka-white">
+        <h3 className="text-3xl mr-4 text-left font-bold text-lappka-pet-grey selection:bg-lappka-green selection:text-lappka-white">
           {name}
-        </h2>
-        <h3 className="text-left text-lappka-pet-grey selection:bg-lappka-green selection:text-lappka-white">
-          {breed}
         </h3>
+        <h4 className="text-left text-lappka-pet-grey selection:bg-lappka-green selection:text-lappka-white">
+          {breed}
+        </h4>
       </div>
       {gender === 'male' ? <MaleIcon /> : <FemaleIcon />}
     </div>

@@ -60,9 +60,9 @@ export const Dashboard = () => {
     >
       <div className="overflow-hidden">
         {loading === false && showError === false ? (
-          <h1 className="text-xl md:text-left text-lappka-primary-grey mb-8 ml-8 selection:bg-lappka-green selection:text-lappka-white">
+          <h2 className="text-xl md:text-left text-lappka-primary-grey mb-8 ml-8 selection:bg-lappka-green selection:text-lappka-white">
             {pets.length === 0 ? 'Nic tutaj nie ma' : 'Zwierzęta w schronisku'}
-          </h1>
+          </h2>
         ) : (
           ''
         )}
