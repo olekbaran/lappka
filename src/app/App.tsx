@@ -1,6 +1,6 @@
 import React from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import { appRoutes } from 'common';
+import { appRoutes } from 'app';
 
 import {
   Login,

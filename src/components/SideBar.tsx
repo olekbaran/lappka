@@ -3,7 +3,7 @@ import { useNavigate, NavLink, Link } from 'react-router-dom';
 
 import { Images } from 'assets/images';
 import { LogoutIcon } from 'assets/icons';
-import { appRoutes } from 'common/appRoutes';
+import { appRoutes } from 'app';
 import { ListElement } from 'components';
 
 type SideBarProps = {

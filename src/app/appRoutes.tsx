@@ -5,7 +5,7 @@ import {
   VolunteeringIcon,
 } from 'assets/icons';
 
-export const slugs = {
+const slugs = {
   auth: {
     dashboard: 'dashboard',
     messages: 'wiadomosci',
