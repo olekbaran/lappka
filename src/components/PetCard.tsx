@@ -29,9 +29,9 @@ export const PetCard: React.FunctionComponent<PetCardProps> = ({
       alt={name}
       className="rounded-t-[inherit] mb-2 selection:bg-lappka-green"
     />
-    <div className="flex items-center justify-between px-6">
+    <div className="flex items-center flex-wrap gap-4 justify-between px-6">
       <div>
-        <h2 className="text-3xl text-left font-bold text-lappka-pet-grey selection:bg-lappka-green selection:text-lappka-white">
+        <h2 className="text-3xl mr-4 text-left font-bold text-lappka-pet-grey selection:bg-lappka-green selection:text-lappka-white">
           {name}
         </h2>
         <h3 className="text-left text-lappka-pet-grey selection:bg-lappka-green selection:text-lappka-white">
@@ -50,7 +50,7 @@ export const PetCard: React.FunctionComponent<PetCardProps> = ({
       ))}
     </ul>
     <div className="flex justify-end px-6">
-      <button className="w-1/2 xs-sm:w-full h-12 rounded-2xl bg-lappka-pet-green text-lappka-white selection:bg-lappka-white selection:text-lappka-pet-green">
+      <button className="w-1/2 xs-sm:w-full h-12 rounded-xl bg-lappka-pet-green text-lappka-white selection:bg-lappka-white selection:text-lappka-pet-green">
         Edytuj
       </button>
     </div>

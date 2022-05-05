@@ -51,15 +51,15 @@ export const Dashboard = () => {
 
   return (
     <section
-      className={`flex flex-col min-h-[calc(100vh-4.375rem)] px-8 pt-8 pb-12 ${
+      className={`flex flex-col min-h-[calc(100vh-4.375rem)] pr-8 pt-8 pb-12 ${
         loading === true || showError === true
           ? 'justify-center items-center'
           : 'justify-between'
       }`}
     >
-      <div>
+      <div className="overflow-hidden">
         {loading === false && showError === false ? (
-          <h1 className="text-xl text-left text-lappka-primary-grey mb-8 selection:bg-lappka-green selection:text-lappka-white">
+          <h1 className="text-xl md:text-left text-lappka-primary-grey mb-8 ml-8 selection:bg-lappka-green selection:text-lappka-white">
             {pets?.length === 0 ? 'Nic tutaj nie ma' : 'Zwierzęta w schronisku'}
           </h1>
         ) : (
@@ -69,7 +69,7 @@ export const Dashboard = () => {
         {loading === true ? (
           <LoadingAnimation />
         ) : (
-          <ul className="flex flex-wrap gap-24">
+          <ul className="flex md:justify-start justify-center flex-wrap gap-24 pb-8 pl-8">
             {currentPets?.map((pet) => (
               <PetCard
                 key={pet.id}

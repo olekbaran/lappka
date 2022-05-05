@@ -12,3 +12,5 @@ export { VolunteeringIcon } from './VolunteeringIcon';
 export { LogoutIcon } from './LogoutIcon';
 export { MaleIcon } from './MaleIcon';
 export { FemaleIcon } from './FemaleIcon';
+export { ArrowLeftIcon } from './ArrowLeftIcon';
+export { ArrowRightIcon } from './ArrowRightIcon';

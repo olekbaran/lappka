@@ -52,3 +52,20 @@ input[type='password']::placeholder {
 .active-svg-white div svg ellipse {
   stroke: white;
 }
+
+@media screen and (max-width: 850px) {
+  .pagination-2 button:last-child {
+    display: none;
+  }
+  .pagination-3 button:first-child,
+  .pagination-3 button:last-child {
+    display: none;
+  }
+  .pagination-one-before-last button:last-child {
+    display: block;
+  }
+  .pagination-last button:first-child,
+  .pagination-last button:last-child {
+    display: block;
+  }
+}
