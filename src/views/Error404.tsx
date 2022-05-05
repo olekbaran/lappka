@@ -1,6 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
+import { appRoutes } from 'app';
+
 export const Error404 = () => (
   <main className="flex flex-col gap-12 items-center justify-center min-h-screen">
     <div className="flex items-center">
@@ -12,7 +14,7 @@ export const Error404 = () => (
       </h2>
     </div>
     <Link
-      to="/dashboard"
+      to={appRoutes.dashboard.slug}
       className="rounded-lg shadow-lg px-8 py-3 bg-lappka-white text-lappka-green selection:bg-lappka-green selection:text-lappka-white"
     >
       Strona główna

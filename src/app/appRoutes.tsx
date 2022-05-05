@@ -5,37 +5,28 @@ import {
   VolunteeringIcon,
 } from 'assets/icons';
 
-const slugs = {
-  auth: {
-    dashboard: 'dashboard',
-    messages: 'wiadomosci',
-    petCards: 'karty-zwierzat',
-    volunteering: 'wolontariat',
+export const appRoutes = {
+  home: {
+    slug: '/',
   },
-  default: {
-    root: '/',
-  },
-};
-
-export const appRoutes = [
-  {
+  dashboard: {
     name: 'Dashboard',
     icon: <DashboardIcon />,
-    slug: slugs.auth.dashboard,
+    slug: '/dashboard',
   },
-  {
+  messages: {
     name: 'Wiadomości',
     icon: <MessageIcon />,
-    slug: slugs.auth.messages,
+    slug: '/wiadomosci',
   },
-  {
+  petCards: {
     name: 'Karty zwierząt',
     icon: <PetCardsIcon />,
-    slug: slugs.auth.petCards,
+    slug: '/karty-zwierzat',
   },
-  {
+  volunteering: {
     name: 'Wolontariat',
     icon: <VolunteeringIcon />,
-    slug: slugs.auth.volunteering,
+    slug: '/wolontariat',
   },
-];
+};

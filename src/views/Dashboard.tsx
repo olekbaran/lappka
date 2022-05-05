@@ -32,11 +32,12 @@ export const Dashboard = () => {
         .then((response) => response.data)
         .then((data) => {
           setPets(data);
-          setLoading(false);
         })
         .catch(() => {
-          setLoading(false);
           setShowError(true);
+        })
+        .finally(() => {
+          setLoading(false);
         });
     };
 
