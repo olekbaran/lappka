@@ -137,7 +137,7 @@ export const Login = () => {
             </button>
           </div>
           <button
-            className={`uppercase text-lappka-white font-bold w-full h-14 rounded-xl drop-shadow-lg mt-12 focus:outline-none selection:bg-lappka-white selection:text-lappka-green transition ease-out duration-500 ${
+            className={`uppercase text-lappka-white font-bold w-full h-14 rounded-xl mt-12 focus:outline-none selection:bg-lappka-white selection:text-lappka-green transition ease-out duration-500 ${
               isAccount === false ? 'bg-lappka-red' : 'bg-lappka-green'
             }`}
           >
