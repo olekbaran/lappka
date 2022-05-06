@@ -1,5 +1,6 @@
 export { RequireAuth } from './RequireAuth';
 export { InputField } from './InputField';
+export { InputCheckbox } from './InputCheckbox';
 export { LoadingAnimation } from './LoadingAnimation';
 export { Error } from './Error';
 export { SideBar } from './SideBar';

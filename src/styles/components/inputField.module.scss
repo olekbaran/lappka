@@ -1,0 +1,47 @@
+@use 'styles/abstracts/variables' as vars;
+@use 'styles/abstracts/mixins' as mixins;
+
+.input {
+  position: relative;
+  width: 100%;
+  height: 3.5rem;
+  margin-top: 1.5rem;
+  @include mixins.flex(center, center, row);
+
+  &__label {
+    position: absolute;
+    left: 1.25rem;
+  }
+
+  &__field {
+    width: 100%;
+    height: 100%;
+    padding: 0 1rem 0 3.5rem;
+    border: 1px solid vars.$lappka-light-grey;
+    border-radius: 0.75rem;
+    outline: none;
+    text-align: left;
+    font-size: 0.875rem;
+    color: vars.$lappka-primary-grey;
+
+    &[type='password'] {
+      letter-spacing: 0.125rem;
+
+      &::placeholder {
+        letter-spacing: normal;
+      }
+    }
+
+    &::placeholder {
+      color: vars.$lappka-light-grey;
+    }
+
+    &:focus {
+      border-color: vars.$lappka-green;
+    }
+
+    &--error {
+      border-color: vars.$lappka-red;
+    }
+  }
+}

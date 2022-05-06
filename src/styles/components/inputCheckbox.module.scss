@@ -1,0 +1,41 @@
+@use 'styles/abstracts/variables' as vars;
+@use 'styles/abstracts/mixins' as mixins;
+
+.checkbox {
+  @include mixins.flex(flex-start, center, row);
+
+  @media screen and (min-width: vars.$xxs) {
+    margin-right: 0.5rem;
+  }
+
+  &__field {
+    width: 1rem;
+    height: 1rem;
+    appearance: none;
+    border: 1px solid vars.$lappka-light-grey;
+    border-radius: 0.25rem;
+    cursor: pointer;
+
+    &:checked {
+      position: relative;
+
+      &::after {
+        content: '';
+        position: absolute;
+        top: calc(50% - 4px);
+        left: calc(50% - 4px);
+        width: 8px;
+        height: 8px;
+        border-radius: 2px;
+        background: vars.$lappka-green;
+      }
+    }
+  }
+
+  &__label {
+    margin-left: 0.375rem;
+    font-size: 0.875rem;
+    color: vars.$lappka-light-grey;
+    cursor: pointer;
+  }
+}
