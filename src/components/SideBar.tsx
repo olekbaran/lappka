@@ -64,7 +64,7 @@ export const SideBar: React.FunctionComponent<SideBarProps> = ({
         </nav>
       </div>
       <div className="px-8 w-full h-11 flex items-center">
-        <button onClick={logout} className="flex items-center ">
+        <button onClick={logout} className="flex items-center ml-4">
           <LogoutIcon />
           <span className="ml-4 font-medium text-lappka-light-grey selection:bg-lappka-green selection:text-lappka-white">
             Wyloguj się
