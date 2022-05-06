@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import axios from 'axios';
+import axios, { AxiosResponse } from 'axios';
 
 import { LoadingAnimation, Error, PetCard, Pagination } from 'components';
 
@@ -20,7 +20,7 @@ interface PetObject {
 export const Dashboard = () => {
   const [loading, setLoading] = useState(false);
   const [showError, setShowError] = useState(false);
-  const [pets, setPets] = useState<PetObject[] | null>(null);
+  const [pets, setPets] = useState<PetObject[]>([]);
   const [currentPage, setCurrentPage] = useState(1);
   const [petsPerPage] = useState(6);
 
@@ -29,14 +29,15 @@ export const Dashboard = () => {
     const fetchPets = async () => {
       await axios
         .get('./pets.json')
-        .then((response) => response.data)
+        .then((response: AxiosResponse<PetObject[]>) => response.data)
         .then((data) => {
           setPets(data);
-          setLoading(false);
         })
         .catch(() => {
-          setLoading(false);
           setShowError(true);
+        })
+        .finally(() => {
+          setLoading(false);
         });
     };
 
@@ -45,7 +46,7 @@ export const Dashboard = () => {
 
   const indexOfLastPet = currentPage * petsPerPage;
   const indexOfFirstPet = indexOfLastPet - petsPerPage;
-  const currentPets = pets?.slice(indexOfFirstPet, indexOfLastPet);
+  const currentPets = pets.slice(indexOfFirstPet, indexOfLastPet);
 
   const paginate = (pageNumber: number) => setCurrentPage(pageNumber);
 
@@ -57,20 +58,22 @@ export const Dashboard = () => {
           : 'justify-between'
       }`}
     >
-      <div className="overflow-hidden">
+      <div>
         {loading === false && showError === false ? (
-          <h1 className="text-xl md:text-left text-lappka-primary-grey mb-8 ml-8 selection:bg-lappka-green selection:text-lappka-white">
-            {pets?.length === 0 ? 'Nic tutaj nie ma' : 'Zwierzęta w schronisku'}
-          </h1>
+          <h2 className="text-xl md:text-left text-lappka-primary-grey mb-8 ml-8 selection:bg-lappka-green selection:text-lappka-white">
+            {pets.length === 0 ? 'Nic tutaj nie ma' : 'Zwierzęta w schronisku'}
+          </h2>
         ) : (
           ''
         )}
         {showError === true ? <Error /> : ''}
         {loading === true ? (
-          <LoadingAnimation />
+          <div className="ml-8 overflow-hidden">
+            <LoadingAnimation />
+          </div>
         ) : (
-          <ul className="flex md:justify-start justify-center flex-wrap gap-24 pb-8 pl-8">
-            {currentPets?.map((pet) => (
+          <ul className="pets-list flex md:justify-start justify-center flex-wrap gap-24 pl-8">
+            {currentPets.map((pet) => (
               <PetCard
                 key={pet.id}
                 image={pet.image}
@@ -83,12 +86,14 @@ export const Dashboard = () => {
           </ul>
         )}
       </div>
-      <Pagination
-        petsPerPage={petsPerPage}
-        totalPets={pets?.length}
-        currentPage={currentPage}
-        paginate={paginate}
-      />
+      <div className={loading === true || showError === true ? 'hidden' : ''}>
+        <Pagination
+          petsPerPage={petsPerPage}
+          totalPets={pets.length}
+          currentPage={currentPage}
+          paginate={paginate}
+        />
+      </div>
     </section>
   );
 };

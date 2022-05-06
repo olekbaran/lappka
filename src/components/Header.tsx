@@ -18,7 +18,7 @@ export const Header: React.FunctionComponent<HeaderProps> = ({
   <header className="flex items-center justify-between h-[4.375rem] w-full px-8 bg-lappka-white">
     <div className="flex items-center text-xl font-bold text-lappka-primary-grey selection:text-lappka-white selection:bg-lappka-green">
       {children}
-      <p className="md:ml-0 ml-8 xs:hidden">{currentPage}</p>
+      <h1 className="md:ml-0 ml-8 xs:hidden">{currentPage}</h1>
     </div>
     <div className="flex items-center ml-8">
       <img

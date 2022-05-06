@@ -16,16 +16,16 @@ import { RequireAuth } from 'components';
 export const App = () => (
   <BrowserRouter>
     <Routes>
-      <Route path="/" element={<Login />} />
+      <Route path={appRoutes.home.slug} element={<Login />} />
       <Route
-        path={`/${appRoutes[0].slug}`}
+        path={appRoutes.dashboard.slug}
         element={
-          <RequireAuth redirectTo="/">
+          <RequireAuth redirectTo={appRoutes.home.slug}>
             <AuthLayout
               userName="Robert G."
               companyName="Nazwa firmy"
               avatar="https://avatars.githubusercontent.com/u/74045117?v=4"
-              currentPage={appRoutes[0].name}
+              currentPage={appRoutes.dashboard.name}
             >
               <Dashboard />
             </AuthLayout>
@@ -33,14 +33,14 @@ export const App = () => (
         }
       />
       <Route
-        path={`/${appRoutes[1].slug}`}
+        path={appRoutes.messages.slug}
         element={
-          <RequireAuth redirectTo="/">
+          <RequireAuth redirectTo={appRoutes.home.slug}>
             <AuthLayout
               userName="Robert G."
               companyName="Nazwa firmy"
               avatar="https://avatars.githubusercontent.com/u/74045117?v=4"
-              currentPage={appRoutes[1].name}
+              currentPage={appRoutes.messages.name}
             >
               <Messages />
             </AuthLayout>
@@ -48,14 +48,14 @@ export const App = () => (
         }
       />
       <Route
-        path={`/${appRoutes[2].slug}`}
+        path={appRoutes.petCards.slug}
         element={
-          <RequireAuth redirectTo="/">
+          <RequireAuth redirectTo={appRoutes.home.slug}>
             <AuthLayout
               userName="Robert G."
               companyName="Nazwa firmy"
               avatar="https://avatars.githubusercontent.com/u/74045117?v=4"
-              currentPage={appRoutes[2].name}
+              currentPage={appRoutes.petCards.name}
             >
               <PetCards />
             </AuthLayout>
@@ -63,14 +63,14 @@ export const App = () => (
         }
       />
       <Route
-        path={`/${appRoutes[3].slug}`}
+        path={appRoutes.volunteering.slug}
         element={
-          <RequireAuth redirectTo="/">
+          <RequireAuth redirectTo={appRoutes.home.slug}>
             <AuthLayout
               userName="Robert G."
               companyName="Nazwa firmy"
               avatar="https://avatars.githubusercontent.com/u/74045117?v=4"
-              currentPage={appRoutes[3].name}
+              currentPage={appRoutes.volunteering.name}
             >
               <Volunteering />
             </AuthLayout>

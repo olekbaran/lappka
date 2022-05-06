@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 
+import { appRoutes } from 'app';
 import { Images } from 'assets/images';
 import { InputField } from 'components';
 import {
@@ -49,7 +50,7 @@ export const Login = () => {
         } else {
           sessionStorage.setItem('token', `${token}`);
         }
-        navigate('/dashboard');
+        navigate(appRoutes.dashboard.slug);
       } else {
         localStorage.removeItem('token');
         sessionStorage.removeItem('token');
@@ -71,7 +72,7 @@ export const Login = () => {
       (sessionStorage.getItem('token') &&
         sessionStorage.getItem('token') !== null)
     ) {
-      navigate('/dashboard');
+      navigate(appRoutes.dashboard.slug);
     }
   });
 
@@ -137,7 +138,7 @@ export const Login = () => {
             </button>
           </div>
           <button
-            className={`uppercase text-lappka-white font-bold w-full h-14 rounded-xl drop-shadow-lg mt-12 focus:outline-none selection:bg-lappka-white selection:text-lappka-green transition ease-out duration-500 ${
+            className={`uppercase text-lappka-white font-bold w-full h-14 rounded-xl mt-12 focus:outline-none selection:bg-lappka-white selection:text-lappka-green transition ease-out duration-500 ${
               isAccount === false ? 'bg-lappka-red' : 'bg-lappka-green'
             }`}
           >

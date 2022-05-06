@@ -3,7 +3,7 @@ import { useNavigate, NavLink, Link } from 'react-router-dom';
 
 import { Images } from 'assets/images';
 import { LogoutIcon } from 'assets/icons';
-import { appRoutes } from 'app';
+import { appRoutes, navigationRoutes } from 'app';
 import { ListElement } from 'components';
 
 type SideBarProps = {
@@ -20,7 +20,7 @@ export const SideBar: React.FunctionComponent<SideBarProps> = ({
   const logout = () => {
     sessionStorage.removeItem('token');
     localStorage.removeItem('token');
-    navigate('/');
+    navigate(appRoutes.home.slug);
   };
 
   return (
@@ -32,7 +32,7 @@ export const SideBar: React.FunctionComponent<SideBarProps> = ({
       <div className="w-full">
         <div className="px-8">
           {children}
-          <Link to="/">
+          <Link to={appRoutes.home.slug}>
             <img
               src={Images.LogoDashboard}
               alt="Logo Łappka"
@@ -43,10 +43,10 @@ export const SideBar: React.FunctionComponent<SideBarProps> = ({
         <hr className="h-px w-full mt-4 bg-lappka-light-blue" />
         <nav className="w-full px-8 lg:px-6 md:px-4 mt-8">
           <ul>
-            {appRoutes.map((Route) => (
+            {navigationRoutes.map((Route) => (
               <ListElement key={Route.slug}>
                 <NavLink
-                  to={`/${Route.slug}`}
+                  to={Route.slug}
                   className={({ isActive }) =>
                     isActive
                       ? 'w-full h-full pl-4 active-svg-white rounded-md bg-lappka-green font-bold text-lappka-white selection:text-lappka-green selection:bg-lappka-white'
@@ -64,7 +64,7 @@ export const SideBar: React.FunctionComponent<SideBarProps> = ({
         </nav>
       </div>
       <div className="px-8 w-full h-11 flex items-center">
-        <button onClick={logout} className="flex items-center ">
+        <button onClick={logout} className="flex items-center ml-4">
           <LogoutIcon />
           <span className="ml-4 font-medium text-lappka-light-grey selection:bg-lappka-green selection:text-lappka-white">
             Wyloguj się
