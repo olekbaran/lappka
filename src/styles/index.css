@@ -53,6 +53,10 @@ input[type='password']::placeholder {
   stroke: white;
 }
 
+.pets-list:last-child {
+  margin-bottom: 3rem;
+}
+
 @media screen and (max-width: 850px) {
   .pagination-2 button:last-child {
     display: none;

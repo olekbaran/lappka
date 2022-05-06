@@ -15,7 +15,7 @@ export const Pagination: React.FunctionComponent<PaginationProps> = ({
   currentPage,
   paginate,
 }) => {
-  const pageNumbers = [];
+  const pageNumbers: number[] = [];
 
   for (let i = 1; i <= Math.ceil(totalPets! / petsPerPage); i += 1) {
     pageNumbers.push(i);
@@ -40,11 +40,13 @@ export const Pagination: React.FunctionComponent<PaginationProps> = ({
   }
 
   return (
-    <nav className="flex justify-center flex-wrap gap-8 mt-24 ml-8">
+    <nav className="flex justify-center flex-wrap gap-8 mt-12 ml-8">
       <button
         onClick={() => {
-          paginate(currentPage - 1);
-          scrollToTop();
+          if (currentPage > 1) {
+            paginate(currentPage - 1);
+            scrollToTop();
+          }
         }}
         className={`flex justify-center items-center w-11 h-11 rounded-md xs-sm:hidden text-lappka-light-grey bg-lappka-white selection:bg-lappka-green selection:text-lappka-white ${
           currentPage === 1
@@ -86,8 +88,10 @@ export const Pagination: React.FunctionComponent<PaginationProps> = ({
       </div>
       <button
         onClick={() => {
-          paginate(currentPage + 1);
-          scrollToTop();
+          if (currentPage < pageNumbers[pageNumbers.length - 1]) {
+            paginate(currentPage + 1);
+            scrollToTop();
+          }
         }}
         className={`flex justify-center items-center w-11 h-11 rounded-md xs-sm:hidden text-lappka-light-grey bg-lappka-white selection:bg-lappka-green selection:text-lappka-white ${
           currentPage === pageNumbers[pageNumbers.length - 1]

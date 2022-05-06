@@ -27,7 +27,7 @@ export const PetCard: React.FunctionComponent<PetCardProps> = ({
     <img
       src={image}
       alt={name}
-      className="rounded-t-[inherit] mb-2 selection:bg-lappka-green"
+      className="min-h-[2.25rem] rounded-t-[inherit] mb-2 selection:bg-lappka-green"
     />
     <div className="flex items-center flex-wrap gap-4 justify-between px-6">
       <div>

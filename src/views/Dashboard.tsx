@@ -58,7 +58,7 @@ export const Dashboard = () => {
           : 'justify-between'
       }`}
     >
-      <div className="overflow-hidden">
+      <div>
         {loading === false && showError === false ? (
           <h2 className="text-xl md:text-left text-lappka-primary-grey mb-8 ml-8 selection:bg-lappka-green selection:text-lappka-white">
             {pets.length === 0 ? 'Nic tutaj nie ma' : 'Zwierzęta w schronisku'}
@@ -68,9 +68,11 @@ export const Dashboard = () => {
         )}
         {showError === true ? <Error /> : ''}
         {loading === true ? (
-          <LoadingAnimation />
+          <div className="ml-8 overflow-hidden">
+            <LoadingAnimation />
+          </div>
         ) : (
-          <ul className="flex md:justify-start justify-center flex-wrap gap-24 pb-8 pl-8">
+          <ul className="pets-list flex md:justify-start justify-center flex-wrap gap-24 pl-8">
             {currentPets.map((pet) => (
               <PetCard
                 key={pet.id}
@@ -84,12 +86,14 @@ export const Dashboard = () => {
           </ul>
         )}
       </div>
-      <Pagination
-        petsPerPage={petsPerPage}
-        totalPets={pets.length}
-        currentPage={currentPage}
-        paginate={paginate}
-      />
+      <div className={loading === true || showError === true ? 'hidden' : ''}>
+        <Pagination
+          petsPerPage={petsPerPage}
+          totalPets={pets.length}
+          currentPage={currentPage}
+          paginate={paginate}
+        />
+      </div>
     </section>
   );
 };
