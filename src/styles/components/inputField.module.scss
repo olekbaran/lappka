@@ -17,12 +17,12 @@
     width: 100%;
     height: 100%;
     padding: 0 1rem 0 3.5rem;
-    border: 1px solid vars.$lappka-light-grey;
+    border: 1px solid vars.$color-light-grey;
     border-radius: 0.75rem;
     outline: none;
     text-align: left;
     font-size: 0.875rem;
-    color: vars.$lappka-primary-grey;
+    color: vars.$color-primary-grey;
 
     &[type='password'] {
       letter-spacing: 0.125rem;
@@ -33,15 +33,15 @@
     }
 
     &::placeholder {
-      color: vars.$lappka-light-grey;
+      color: vars.$color-light-grey;
     }
 
     &:focus {
-      border-color: vars.$lappka-green;
+      border-color: vars.$color-green;
     }
 
     &--error {
-      border-color: vars.$lappka-red;
+      border-color: vars.$color-red;
     }
   }
 }

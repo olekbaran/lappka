@@ -1,10 +1,12 @@
 import React from 'react';
 
+import styles from 'styles/icons/dashboardIcon.module.scss';
+
 export const DashboardIcon = () => (
   <svg
     width="18"
     height="18"
-    className="ml-[3px]"
+    className={styles.dashboardIcon}
     viewBox="0 0 18 18"
     fill="none"
     xmlns="http://www.w3.org/2000/svg"

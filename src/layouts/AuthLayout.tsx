@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 
+import styles from 'styles/layouts/authLayout.module.scss';
 import { Header, SideBar } from 'components';
 import { MenuIcon, CloseIcon } from 'assets/icons';
 
@@ -28,23 +29,18 @@ export const AuthLayout: React.FunctionComponent<AuthLayoutProps> = ({
   };
 
   return (
-    <main className="max-w-[2160px] mx-auto flex drop-shadow-lg">
+    <main className={styles.layout}>
       <SideBar isShown={isMobileNavShown}>
-        <div className="md:hidden flex items-center">
-          <div
-            aria-hidden
-            onClick={closeMobileNav}
-            onKeyDown={closeMobileNav}
-            className="cursor-pointer"
-          >
-            <CloseIcon />
-          </div>
-          <p className="md:ml-0 ml-8 xs:hidden text-xl font-bold text-lappka-primary-grey selection:text-lappka-white selection:bg-lappka-green">
-            Menu
-          </p>
+        <div
+          aria-hidden
+          onClick={closeMobileNav}
+          onKeyDown={closeMobileNav}
+          className={styles.closeIcon}
+        >
+          <CloseIcon />
         </div>
       </SideBar>
-      <div className="w-full">
+      <div className={styles.rightSection}>
         <Header
           currentPage={currentPage}
           userName={userName}
@@ -55,12 +51,12 @@ export const AuthLayout: React.FunctionComponent<AuthLayoutProps> = ({
             aria-hidden
             onClick={openMobileNav}
             onKeyDown={openMobileNav}
-            className="md:hidden block cursor-pointer"
+            className={styles.menuIcon}
           >
             <MenuIcon />
           </div>
         </Header>
-        {children}
+        <div className={styles.rightSection__content}>{children}</div>
       </div>
     </main>
   );

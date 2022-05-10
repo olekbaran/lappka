@@ -1,0 +1,7 @@
+@use 'styles/abstracts/variables' as vars;
+
+.dashboardIcon {
+  @media screen and (min-width: vars.$md) {
+    margin-left: 3px;
+  }
+}

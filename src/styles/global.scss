@@ -9,15 +9,15 @@
   border: 0;
   text-align: center;
   font-family: vars.$font-primary, vars.$fallback-font;
-  outline-color: vars.$lappka-primary-grey;
+  outline-color: vars.$color-primary-grey;
   scroll-behavior: smooth;
   scrollbar-width: thin;
-  scrollbar-color: vars.$lappka-green vars.$lappka-dark-white;
+  scrollbar-color: vars.$color-green vars.$color-dark-white;
 }
 
 *::selection {
-  background-color: vars.$lappka-green;
-  color: vars.$lappka-white;
+  background-color: vars.$color-green;
+  color: vars.$color-white;
 }
 
 *::-webkit-scrollbar {
@@ -30,13 +30,9 @@
 }
 
 *::-webkit-scrollbar-thumb {
-  background: vars.$lappka-green;
+  background: vars.$color-green;
 }
 
 body {
-  background: vars.$lappka-white;
-
-  @media screen and (min-width: vars.$md) {
-    background: vars.$lappka-dark-white;
-  }
+  background: vars.$color-white;
 }

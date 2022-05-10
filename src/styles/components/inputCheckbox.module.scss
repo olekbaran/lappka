@@ -12,7 +12,7 @@
     width: 1rem;
     height: 1rem;
     appearance: none;
-    border: 1px solid vars.$lappka-light-grey;
+    border: 1px solid vars.$color-light-grey;
     border-radius: 0.25rem;
     cursor: pointer;
 
@@ -27,7 +27,7 @@
         width: 8px;
         height: 8px;
         border-radius: 2px;
-        background: vars.$lappka-green;
+        background: vars.$color-green;
       }
     }
   }
@@ -35,7 +35,7 @@
   &__label {
     margin-left: 0.375rem;
     font-size: 0.875rem;
-    color: vars.$lappka-light-grey;
+    color: vars.$color-light-grey;
     cursor: pointer;
   }
 }
