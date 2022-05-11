@@ -23,7 +23,11 @@ export const Header: React.FunctionComponent<HeaderProps> = ({
       <h1 className={styles.currentPage__text}>{currentPage}</h1>
     </div>
     <div className={styles.user}>
-      <img src={avatar} alt="User avatar" className={styles.user__avatar} />
+      <img
+        src={avatar}
+        alt={`Zdjęcie użytkownika ${userName}`}
+        className={styles.user__avatar}
+      />
       <div>
         <p className={styles.user__name}>{userName}</p>
         <p className={styles.user__company}>{companyName}</p>

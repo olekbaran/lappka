@@ -82,11 +82,11 @@ export const Dashboard = () => {
         </ul>
       )}
       <div
-        className={
+        className={`${styles.paginationWrapper} ${
           loading === true || showError === true
             ? styles['paginationWrapper--hidden']
             : ''
-        }
+        }`}
       >
         <Pagination
           petsPerPage={petsPerPage}

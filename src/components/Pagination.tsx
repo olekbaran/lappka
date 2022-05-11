@@ -1,5 +1,6 @@
 import React from 'react';
 
+import styles from 'styles/components/pagination.module.scss';
 import { ArrowLeftIcon, ArrowRightIcon } from 'assets/icons';
 
 type PaginationProps = {
@@ -40,7 +41,7 @@ export const Pagination: React.FunctionComponent<PaginationProps> = ({
   }
 
   return (
-    <nav className="flex justify-center flex-wrap gap-8 mt-12 ml-8">
+    <nav className={styles.pagination}>
       <button
         onClick={() => {
           if (currentPage > 1) {
@@ -48,26 +49,28 @@ export const Pagination: React.FunctionComponent<PaginationProps> = ({
             scrollToTop();
           }
         }}
-        className={`flex justify-center items-center w-11 h-11 rounded-md xs-sm:hidden text-lappka-light-grey bg-lappka-white selection:bg-lappka-green selection:text-lappka-white ${
+        className={`${styles.paginationButton} ${
+          styles.pagination__nextPrevButton
+        } ${
           currentPage === 1
-            ? 'pointer-events-none bg-lappka-dark-white text-opacity-20'
+            ? styles['pagination__nextPrevButton--disabled']
             : ''
         }`}
       >
         <ArrowLeftIcon />
       </button>
       <div
-        className={`flex justify-center flex-wrap gap-8 ${
-          currentPage >= 3 ? 'pagination-3' : ''
+        className={`${styles.pagesList} ${
+          currentPage >= 3 ? styles['pagesList--3Elements'] : ''
         } ${
           currentPage === pageNumbers[pageNumbers.length - 1]
-            ? 'pagination-last'
+            ? styles['pagesList--lastElement']
             : ''
         } ${
           currentPage === pageNumbers[pageNumbers.length - 2]
-            ? 'pagination-one-before-last'
+            ? styles['pagesList--1BeforeLastElement']
             : ''
-        } ${currentPage === 2 ? 'pagination-2' : ''}`}
+        } ${currentPage === 2 ? styles['pagesList--2Elements'] : ''}`}
       >
         {pageNumbers.map((number) => (
           <button
@@ -76,11 +79,9 @@ export const Pagination: React.FunctionComponent<PaginationProps> = ({
               paginate(number);
               scrollToTop();
             }}
-            className={`${
-              currentPage === number
-                ? 'bg-lappka-green text-lappka-white selection:bg-lappka-white selection:text-lappka-green'
-                : 'bg-lappka-white text-lappka-green selection:bg-lappka-green selection:text-lappka-white'
-            } w-11 h-11 rounded-md`}
+            className={`${styles.paginationButton} ${
+              currentPage === number ? styles['paginationButton--active'] : ''
+            }`}
           >
             {number}
           </button>
@@ -93,9 +94,11 @@ export const Pagination: React.FunctionComponent<PaginationProps> = ({
             scrollToTop();
           }
         }}
-        className={`flex justify-center items-center w-11 h-11 rounded-md xs-sm:hidden text-lappka-light-grey bg-lappka-white selection:bg-lappka-green selection:text-lappka-white ${
+        className={`${styles.paginationButton} ${
+          styles.pagination__nextPrevButton
+        } ${
           currentPage === pageNumbers[pageNumbers.length - 1]
-            ? 'pointer-events-none bg-lappka-dark-white text-opacity-20'
+            ? styles['pagination__nextPrevButton--disabled']
             : ''
         }`}
       >

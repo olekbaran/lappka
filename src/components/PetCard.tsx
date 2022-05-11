@@ -25,7 +25,11 @@ export const PetCard: React.FunctionComponent<PetCardProps> = ({
   details,
 }) => (
   <li className={styles.pet}>
-    <img src={image} alt={`Zdjęcie ${name}`} className={styles.pet__photo} />
+    <img
+      src={image}
+      alt={`Zdjęcie zwierzaka ${name}`}
+      className={styles.pet__photo}
+    />
     <div className={styles.petText}>
       <div>
         <h3 className={styles.petText__name}>{name}</h3>

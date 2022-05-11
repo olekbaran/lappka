@@ -12,6 +12,10 @@
   }
 }
 
-.paginationWrapper--hidden {
-  display: none;
+.paginationWrapper {
+  width: 100%;
+
+  &--hidden {
+    display: none;
+  }
 }
