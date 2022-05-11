@@ -1,0 +1,67 @@
+@use 'styles/abstracts/variables' as vars;
+@use 'styles/abstracts/mixins' as mixins;
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  text-align: center;
+  font-family: vars.$font-primary, vars.$fallback-font;
+  outline-color: vars.$color-primary-grey;
+  scroll-behavior: smooth;
+  scrollbar-width: thin;
+  scrollbar-color: vars.$color-green vars.$color-dark-white;
+}
+
+*::selection {
+  background-color: vars.$color-green;
+  color: vars.$color-white;
+}
+
+*::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+*::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+*::-webkit-scrollbar-thumb {
+  background: vars.$color-green;
+}
+
+body {
+  background: vars.$color-white;
+}
+
+ul {
+  list-style-type: none;
+}
+
+.contentWrapper {
+  min-height: calc(100vh - 4.375rem);
+  padding: 2rem 2rem 3rem;
+  background: vars.$color-dark-white;
+  @include mixins.flex(flex-start, center, column);
+
+  @media screen and (min-width: vars.$md) {
+    align-items: flex-start;
+  }
+
+  &--center {
+    justify-content: center;
+    align-items: center;
+  }
+}
+
+.heading {
+  margin-bottom: 2rem;
+  text-align: left;
+  font-size: 1.25rem;
+  font-weight: 400;
+  color: vars.$color-primary-grey;
+}

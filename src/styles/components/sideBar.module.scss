@@ -1,0 +1,134 @@
+@use 'styles/abstracts/variables' as vars;
+@use 'styles/abstracts/mixins' as mixins;
+
+.sideBar {
+  position: fixed;
+  top: 0;
+  overflow-y: auto;
+  width: 7rem;
+  height: 100vh;
+  padding-top: 1rem;
+  padding-bottom: 3rem;
+  transform: translateX(-100%);
+  background: vars.$color-white;
+  z-index: 1;
+  transition: 0.25s ease-in-out;
+  @include mixins.flex(space-between, flex-start, column);
+
+  @media screen and (min-width: vars.$md) {
+    width: 18rem;
+    transform: translateX(0);
+  }
+
+  &--show {
+    transform: translateX(0);
+  }
+}
+
+.navWrapper {
+  width: 100%;
+}
+
+.logo {
+  display: none;
+
+  @media screen and (min-width: vars.$md) {
+    display: block;
+    margin-left: 2rem;
+  }
+}
+
+.hr {
+  width: 100%;
+  height: 1px;
+  margin-top: 1rem;
+  background: vars.$color-light-blue;
+}
+
+.nav {
+  margin-top: 2rem;
+  padding: 0 2rem;
+}
+
+.navLink {
+  width: 100%;
+  height: 2.75rem;
+  margin: 0 auto 1rem;
+  text-decoration: none;
+  font-weight: 500;
+  color: vars.$color-light-grey;
+  @include mixins.flex(center, center, row);
+
+  @media screen and (min-width: vars.$md) {
+    width: fit-content;
+    margin-left: 1rem;
+    @include mixins.flex(flex-start, center, row);
+  }
+
+  &--active {
+    width: 100%;
+    margin-left: 0;
+    border-radius: 0.375rem;
+    background: vars.$color-green;
+    color: vars.$color-white;
+
+    @media screen and (min-width: vars.$md) {
+      padding-left: 1rem;
+    }
+
+    path {
+      fill: vars.$color-white;
+    }
+
+    ellipse {
+      stroke: vars.$color-white;
+    }
+  }
+
+  &__element {
+    gap: 1rem;
+    @include mixins.flex(flex-start, center, row);
+
+    span {
+      display: none;
+
+      @media screen and (min-width: vars.$md) {
+        display: inline;
+      }
+    }
+  }
+}
+
+.logoutWrapper {
+  width: 100%;
+
+  @media screen and (min-width: vars.$md) {
+    padding: 0 2rem;
+  }
+}
+
+.logoutButton {
+  height: 2.75rem;
+  margin: 2rem auto 0;
+  padding: 0 0.75rem;
+  gap: 1rem;
+  background: none;
+  cursor: pointer;
+  @include mixins.flex(flex-start, center, row);
+
+  @media screen and (min-width: vars.$md) {
+    margin-left: 1rem;
+    padding: 0;
+  }
+
+  &__text {
+    display: none;
+    font-size: 1rem;
+    font-weight: 500;
+    color: vars.$color-light-grey;
+
+    @media screen and (min-width: vars.$md) {
+      display: inline;
+    }
+  }
+}

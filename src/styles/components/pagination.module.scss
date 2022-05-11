@@ -1,0 +1,61 @@
+@use 'styles/abstracts/variables' as vars;
+@use 'styles/abstracts/mixins' as mixins;
+
+.pagination {
+  flex-wrap: wrap;
+  gap: 2rem;
+  width: 100%;
+  @include mixins.flex(center, center, row);
+
+  .paginationButton {
+    width: 2.75rem;
+    height: 2.75rem;
+    border-radius: 0.375rem;
+    background: vars.$color-white;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    font-size: 1rem;
+    color: vars.$color-green;
+    cursor: pointer;
+
+    &--active {
+      background: vars.$color-green;
+      color: vars.$color-white;
+    }
+  }
+
+  &__nextPrevButton {
+    display: none;
+
+    @media screen and (min-width: vars.$xs-sm) {
+      @include mixins.flex(center, center, row);
+    }
+
+    &--disabled {
+      background: vars.$color-dark-white;
+      opacity: 0.2;
+      box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.6) !important;
+
+      pointer-events: none;
+    }
+  }
+
+  .pagesList {
+    flex-wrap: wrap;
+    gap: 2rem;
+    @include mixins.flex(center, center, row);
+
+    @media screen and (max-width: vars.$md-lg) {
+      &--2Elements button:last-child,
+      &--3Elements button:first-child,
+      &--3Elements button:last-child {
+        display: none;
+      }
+
+      &--1BeforeLastElement button:last-child,
+      &--lastElement button:first-child,
+      &--lastElement button:last-child {
+        display: block;
+      }
+    }
+  }
+}

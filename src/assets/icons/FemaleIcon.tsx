@@ -2,7 +2,7 @@ import React from 'react';
 
 export const FemaleIcon = () => (
   <svg
-    width="43"
+    width="44"
     height="44"
     viewBox="0 0 43 44"
     fill="none"

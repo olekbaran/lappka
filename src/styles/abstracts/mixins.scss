@@ -1,0 +1,11 @@
+@mixin max-width($max-width) {
+  max-width: $max-width;
+  margin: 0 auto;
+}
+
+@mixin flex($justify, $align, $direction) {
+  display: flex;
+  justify-content: $justify;
+  align-items: $align;
+  flex-direction: $direction;
+}

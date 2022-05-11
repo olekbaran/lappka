@@ -1,0 +1,155 @@
+@use 'styles/abstracts/variables' as vars;
+@use 'styles/abstracts/mixins' as mixins;
+
+.loginWrapper {
+  min-height: 100vh;
+  @include mixins.flex(center, center, column);
+
+  @media screen and (min-width: vars.$md) {
+    background: vars.$color-dark-white;
+  }
+}
+
+.loginBox {
+  position: relative;
+  width: 100%;
+  padding: 2rem;
+  border-radius: 1.5rem;
+  background: vars.$color-white;
+  @include mixins.flex(center, center, column);
+
+  @media screen and (min-width: vars.$md) {
+    width: 39rem;
+    height: 40rem;
+    box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1),
+      0 8px 10px -6px rgb(0 0 0 / 0.1);
+  }
+}
+
+.logo {
+  margin-bottom: 1.5rem;
+}
+
+.headingText {
+  position: relative;
+  padding-bottom: 1rem;
+  font-size: 2.25rem;
+  font-weight: 700;
+  color: vars.$color-green;
+
+  &::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: calc(50% - 2.5rem);
+    width: 5rem;
+    height: 0.25rem;
+    border-radius: 0.25rem;
+    background: vars.$color-green;
+  }
+
+  &__desktop {
+    display: none;
+
+    @media screen and (min-width: vars.$md) {
+      display: inline;
+    }
+  }
+
+  &__mobile {
+    @media screen and (min-width: vars.$md) {
+      display: none;
+    }
+  }
+}
+
+.loginForm {
+  width: 100%;
+
+  @media screen and (min-width: vars.$md) {
+    padding: 0 7rem;
+  }
+
+  .otherInputs {
+    margin-top: 1.5rem;
+    @include mixins.flex(center, center, column);
+
+    @media screen and (min-width: vars.$xxs) {
+      @include mixins.flex(space-between, center, row);
+    }
+
+    &__forgotPassword {
+      margin-top: 1.5rem;
+      background: none;
+      font-size: 0.875rem;
+      color: vars.$color-light-grey;
+      cursor: pointer;
+
+      @media screen and (min-width: vars.$xxs) {
+        margin-top: 0;
+        margin-left: 0.5rem;
+      }
+    }
+  }
+
+  &__submit {
+    width: 100%;
+    height: 3.5rem;
+    margin-top: 3rem;
+    border-radius: 0.75rem;
+    background: vars.$color-green;
+    text-transform: uppercase;
+    font-size: 1rem;
+    font-weight: 700;
+    color: vars.$color-white;
+    cursor: pointer;
+    transition: 0.2s ease-out;
+
+    &--error {
+      background: vars.$color-red;
+    }
+  }
+}
+
+.loginError {
+  display: none;
+
+  &--show {
+    position: absolute;
+    bottom: 17%;
+    margin-top: 0.75rem;
+    gap: 0.5rem;
+    @include mixins.flex(center, center, row);
+  }
+
+  &__text {
+    font-size: 0.875rem;
+    color: vars.$color-red;
+  }
+}
+
+.otherMethods {
+  margin-top: 3rem;
+  gap: 1rem;
+  @include mixins.flex(center, center, column);
+
+  @media screen and (min-width: vars.$xxs) {
+    gap: 2rem;
+    @include mixins.flex(space-between, center, row);
+  }
+
+  &__text {
+    font-size: 0.875rem;
+    font-weight: 700;
+    color: vars.$color-light-grey;
+  }
+
+  &__icons {
+    gap: 1rem;
+    @include mixins.flex(center, center, row);
+
+    & > * {
+      cursor: pointer;
+    }
+  }
+}

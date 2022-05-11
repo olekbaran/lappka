@@ -1,10 +1,10 @@
 import React from 'react';
 import { useNavigate, NavLink, Link } from 'react-router-dom';
 
+import styles from 'styles/components/sideBar.module.scss';
+import { appRoutes, navigationRoutes } from 'app';
 import { Images } from 'assets/images';
 import { LogoutIcon } from 'assets/icons';
-import { appRoutes, navigationRoutes } from 'app';
-import { ListElement } from 'components';
 
 type SideBarProps = {
   isShown: boolean;
@@ -25,50 +25,46 @@ export const SideBar: React.FunctionComponent<SideBarProps> = ({
 
   return (
     <aside
-      className={`${
-        isShown === true ? 'translate-x-0' : '-translate-x-full'
-      } flex flex-col items-start justify-between z-10 md:translate-x-0 md:static absolute min-h-screen md:w-80 w-screen md:pt-4 pt-3.5 pb-12 bg-lappka-white transition duration-500 ease-in-out`}
+      className={`${styles.sideBar} ${
+        isShown === true ? styles['sideBar--show'] : ''
+      }`}
     >
-      <div className="w-full">
-        <div className="px-8">
-          {children}
-          <Link to={appRoutes.home.slug}>
-            <img
-              src={Images.LogoDashboard}
-              alt="Logo Łappka"
-              className="selection:bg-lappka-green md:mt-0 mt-4"
-            />
-          </Link>
-        </div>
-        <hr className="h-px w-full mt-4 bg-lappka-light-blue" />
-        <nav className="w-full px-8 lg:px-6 md:px-4 mt-8">
+      <div className={styles.navWrapper}>
+        <Link to={appRoutes.home.slug}>
+          <img
+            src={Images.LogoDashboard}
+            alt="Logo Łappka"
+            className={styles.logo}
+          />
+        </Link>
+        {children}
+        <hr className={styles.hr} />
+        <nav className={styles.nav}>
           <ul>
             {navigationRoutes.map((Route) => (
-              <ListElement key={Route.slug}>
+              <li key={Route.slug}>
                 <NavLink
                   to={Route.slug}
                   className={({ isActive }) =>
-                    isActive
-                      ? 'w-full h-full pl-4 active-svg-white rounded-md bg-lappka-green font-bold text-lappka-white selection:text-lappka-green selection:bg-lappka-white'
-                      : 'font-medium ml-4'
+                    `${styles.navLink} ${
+                      isActive ? styles['navLink--active'] : ''
+                    }`
                   }
                 >
-                  <div className="flex items-center h-full w-full">
+                  <div className={styles.navLink__element}>
                     {Route.icon}
-                    <span className="ml-4">{Route.name}</span>
+                    <span>{Route.name}</span>
                   </div>
                 </NavLink>
-              </ListElement>
+              </li>
             ))}
           </ul>
         </nav>
       </div>
-      <div className="px-8 w-full h-11 flex items-center">
-        <button onClick={logout} className="flex items-center ml-4">
+      <div className={styles.logoutWrapper}>
+        <button onClick={logout} className={styles.logoutButton}>
           <LogoutIcon />
-          <span className="ml-4 font-medium text-lappka-light-grey selection:bg-lappka-green selection:text-lappka-white">
-            Wyloguj się
-          </span>
+          <span className={styles.logoutButton__text}>Wyloguj się</span>
         </button>
       </div>
     </aside>

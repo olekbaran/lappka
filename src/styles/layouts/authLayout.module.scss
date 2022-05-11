@@ -1,0 +1,38 @@
+@use 'styles/abstracts/variables' as vars;
+@use 'styles/abstracts/mixins' as mixins;
+
+.layout {
+  min-height: calc(100vh - 4.375rem);
+  @include mixins.max-width(vars.$max-width);
+}
+
+.menuIcon {
+  width: fit-content;
+  height: 3rem;
+  cursor: pointer;
+
+  @media screen and (min-width: vars.$md) {
+    display: none;
+  }
+}
+
+.closeIcon {
+  width: fit-content;
+  height: 3rem;
+  margin: 0 auto;
+  cursor: pointer;
+
+  @media screen and (min-width: vars.$md) {
+    display: none;
+  }
+}
+
+.rightSection {
+  @media screen and (min-width: vars.$md) {
+    margin-left: 18rem;
+  }
+
+  &__content {
+    margin-top: 4.375rem;
+  }
+}

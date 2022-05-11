@@ -1,5 +1,7 @@
 import React from 'react';
 
+import styles from 'styles/components/header.module.scss';
+
 type HeaderProps = {
   currentPage: string;
   userName: string;
@@ -15,24 +17,20 @@ export const Header: React.FunctionComponent<HeaderProps> = ({
   avatar,
   children,
 }) => (
-  <header className="flex items-center justify-between h-[4.375rem] w-full px-8 bg-lappka-white">
-    <div className="flex items-center text-xl font-bold text-lappka-primary-grey selection:text-lappka-white selection:bg-lappka-green">
+  <header className={styles.header}>
+    <div className={styles.currentPage}>
       {children}
-      <h1 className="md:ml-0 ml-8 xs:hidden">{currentPage}</h1>
+      <h1 className={styles.currentPage__text}>{currentPage}</h1>
     </div>
-    <div className="flex items-center ml-8">
+    <div className={styles.user}>
       <img
         src={avatar}
-        alt="User avatar"
-        className="w-9 h-9 mr-3 rounded-full selection:bg-lappka-green"
+        alt={`Zdjęcie użytkownika ${userName}`}
+        className={styles.user__avatar}
       />
       <div>
-        <p className="text-left text-sm font-bold text-lappka-primary-grey selection:text-lappka-white selection:bg-lappka-green">
-          {userName}
-        </p>
-        <p className="text-left text-xs text-lappka-light-grey selection:text-lappka-white selection:bg-lappka-green">
-          {companyName}
-        </p>
+        <p className={styles.user__name}>{userName}</p>
+        <p className={styles.user__company}>{companyName}</p>
       </div>
     </div>
   </header>

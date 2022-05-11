@@ -1,0 +1,21 @@
+@use 'styles/abstracts/variables' as vars;
+@use 'styles/abstracts/mixins' as mixins;
+
+.petsList {
+  flex-wrap: wrap;
+  gap: 6rem;
+  margin-bottom: 6rem;
+  @include mixins.flex(center, center, row);
+
+  @media screen and (min-width: vars.$md) {
+    justify-content: flex-start;
+  }
+}
+
+.paginationWrapper {
+  width: 100%;
+
+  &--hidden {
+    display: none;
+  }
+}

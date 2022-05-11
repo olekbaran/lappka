@@ -1,5 +1,6 @@
 import React from 'react';
 
+import styles from 'styles/components/petCard.module.scss';
 import { MaleIcon, FemaleIcon } from 'assets/icons';
 import { PetDetailsElement } from 'components';
 
@@ -23,24 +24,21 @@ export const PetCard: React.FunctionComponent<PetCardProps> = ({
   gender,
   details,
 }) => (
-  <li className="w-full max-w-[455px] pb-9 bg-lappka-white shadow-lg rounded-2xl">
+  <li className={styles.pet}>
     <img
       src={image}
-      alt={name}
-      className="min-h-[2.25rem] rounded-t-[inherit] mb-2 selection:bg-lappka-green"
+      alt={`Zdjęcie zwierzaka ${name}`}
+      className={styles.pet__photo}
     />
-    <div className="flex items-center flex-wrap gap-4 justify-between px-6">
+    <div className={styles.petText}>
       <div>
-        <h3 className="text-3xl mr-4 text-left font-bold text-lappka-pet-grey selection:bg-lappka-green selection:text-lappka-white">
-          {name}
-        </h3>
-        <h4 className="text-left text-lappka-pet-grey selection:bg-lappka-green selection:text-lappka-white">
-          {breed}
-        </h4>
+        <h3 className={styles.petText__name}>{name}</h3>
+        <h4 className={styles.petText__breed}>{breed}</h4>
       </div>
-      {gender === 'male' ? <MaleIcon /> : <FemaleIcon />}
+      {gender === 'male' ? <MaleIcon /> : ''}
+      {gender === 'female' ? <FemaleIcon /> : ''}
     </div>
-    <ul className="flex items-center flex-wrap px-6 mt-4 mb-6 gap-2.5">
+    <ul className={styles.pet__details}>
       {details.map((detailsElement) => (
         <PetDetailsElement
           key={detailsElement.title}
@@ -49,10 +47,8 @@ export const PetCard: React.FunctionComponent<PetCardProps> = ({
         />
       ))}
     </ul>
-    <div className="flex justify-end px-6">
-      <button className="w-1/2 xs-sm:w-full h-12 rounded-xl bg-lappka-pet-green text-lappka-white selection:bg-lappka-white selection:text-lappka-pet-green">
-        Edytuj
-      </button>
+    <div className={styles.buttonWrapper}>
+      <button className={styles.editButton}>Edytuj</button>
     </div>
   </li>
 );

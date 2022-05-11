@@ -1,0 +1,38 @@
+@use 'styles/abstracts/variables' as vars;
+@use 'styles/abstracts/mixins' as mixins;
+
+.errorWrapper {
+  min-height: 100vh;
+  gap: 3rem;
+  background: vars.$color-dark-white;
+  @include mixins.flex(center, center, column);
+
+  .error {
+    gap: 1.25rem;
+    @include mixins.flex(center, center, row);
+
+    &__code {
+      padding: 0.625rem 1.5rem 0.625rem 0;
+      border-right: 1px solid vars.$color-green;
+      font-size: 1.5rem;
+      font-weight: 500;
+      color: vars.$color-green;
+    }
+
+    &__text {
+      font-size: 0.875rem;
+      font-weight: 400;
+      color: vars.$color-light-grey;
+    }
+  }
+
+  .backToHome {
+    padding: 1rem 2rem;
+    border-radius: 0.5rem;
+    box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1),
+      0 4px 6px -4px rgb(0 0 0 / 0.1);
+    background: vars.$color-white;
+    text-decoration: none;
+    color: vars.$color-green;
+  }
+}

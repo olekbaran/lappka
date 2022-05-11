@@ -1,9 +1,9 @@
 export { RequireAuth } from './RequireAuth';
 export { InputField } from './InputField';
+export { InputCheckbox } from './InputCheckbox';
 export { LoadingAnimation } from './LoadingAnimation';
 export { Error } from './Error';
 export { SideBar } from './SideBar';
-export { ListElement } from './ListElement';
 export { Header } from './Header';
 export { PetCard } from './PetCard';
 export { PetDetailsElement } from './PetDetailsElement';
