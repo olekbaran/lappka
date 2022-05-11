@@ -40,7 +40,7 @@ export const SideBar: React.FunctionComponent<SideBarProps> = ({
         {children}
         <hr className={styles.hr} />
         <nav className={styles.nav}>
-          <ul className={styles.nav__list}>
+          <ul>
             {navigationRoutes.map((Route) => (
               <li key={Route.slug}>
                 <NavLink

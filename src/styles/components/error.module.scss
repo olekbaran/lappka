@@ -1,0 +1,16 @@
+@use 'styles/abstracts/variables.scss' as vars;
+
+.error {
+  width: 100%;
+  padding: 1.5rem 0;
+  border-radius: 0.75rem;
+  background: vars.$color-white;
+  font-weight: 500;
+  color: vars.$color-red;
+  box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.06),
+    0 8px 10px -6px rgb(0 0 0 / 0.06);
+
+  @media screen and (min-width: vars.$xs-sm) {
+    width: 20rem;
+  }
+}

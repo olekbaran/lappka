@@ -1,4 +1,5 @@
 @use 'styles/abstracts/variables' as vars;
+@use 'styles/abstracts/mixins' as mixins;
 
 *,
 *::before,
@@ -35,4 +36,32 @@
 
 body {
   background: vars.$color-white;
+}
+
+ul {
+  list-style-type: none;
+}
+
+.contentWrapper {
+  min-height: calc(100vh - 4.375rem);
+  padding: 2rem 2rem 3rem;
+  background: vars.$color-dark-white;
+  @include mixins.flex(flex-start, center, column);
+
+  @media screen and (min-width: vars.$md) {
+    align-items: flex-start;
+  }
+
+  &--center {
+    justify-content: center;
+    align-items: center;
+  }
+}
+
+.heading {
+  margin-bottom: 2rem;
+  text-align: left;
+  font-size: 1.25rem;
+  font-weight: 400;
+  color: vars.$color-primary-grey;
 }
