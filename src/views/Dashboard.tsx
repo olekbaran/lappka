@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import axios, { AxiosResponse } from 'axios';
 
+import styles from 'styles/views/dashboard.module.scss';
 import { LoadingAnimation, Error, PetCard, Pagination } from 'components';
 
 interface Details {
@@ -67,7 +68,7 @@ export const Dashboard = () => {
       {loading === true ? (
         <LoadingAnimation />
       ) : (
-        <ul className="pets-list flex md:justify-start justify-center flex-wrap gap-24 pl-8">
+        <ul className={styles.petsList}>
           {currentPets.map((pet) => (
             <PetCard
               key={pet.id}
@@ -80,7 +81,13 @@ export const Dashboard = () => {
           ))}
         </ul>
       )}
-      <div className={loading === true || showError === true ? 'hidden' : ''}>
+      <div
+        className={
+          loading === true || showError === true
+            ? styles['paginationWrapper--hidden']
+            : ''
+        }
+      >
         <Pagination
           petsPerPage={petsPerPage}
           totalPets={pets.length}
