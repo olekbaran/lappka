@@ -1,6 +1,17 @@
-# Getting Started with Create React App
+<p align="center"><img src="https://user-images.githubusercontent.com/74045117/168027094-4cbec262-1b11-431e-8789-2c8526b4c99a.png" width="100%"></p>
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Łappka
+
+🐶 Mobitouch internship task
+
+Check out demo here: https://lappka.vercel.app/
+
+To sign in, use login and password below:
+| Login | Password |
+| :------: | :-----: |
+| admin    | admin |
+
+This project was built using React, SCSS with BEM methodology and CSS Modules.
 
 ## Available Scripts
 
