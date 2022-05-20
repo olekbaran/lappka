@@ -34,7 +34,8 @@ const Validation = object().shape({
   }),
 });
 
-const loginUser = (login: string, password: string) => {
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
+const loginUser = (login: string, password: string, nip?: string) => {
   if (login === 'admin' && password === 'admin') {
     return 1234;
   }
@@ -49,7 +50,12 @@ export const Login = () => {
     values: formValues,
     { resetForm }: FormikHelpers<formValues>
   ) => {
-    const token = loginUser(values.login, values.password);
+    let token;
+    if (values.nip) {
+      token = loginUser(values.login, values.password, values.nip);
+    } else {
+      token = loginUser(values.login, values.password);
+    }
     if (token) {
       if (values.rememberMe === true) {
         localStorage.setItem('token', `${token}`);
