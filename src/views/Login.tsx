@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Formik, Form, FormikHelpers } from 'formik';
-import { object, string } from 'yup';
+import { boolean, object, string } from 'yup';
 
 import styles from 'styles/views/login.module.scss';
 import { appRoutes } from 'app';
@@ -13,18 +13,25 @@ import {
   UserIcon,
   LockIcon,
   ErrorIcon,
+  FingerPrintIcon,
 } from 'assets/icons';
 
 interface formValues {
   login: string;
   password: string;
   rememberMe: boolean;
+  company: boolean;
+  nip: string;
 }
 
 const Validation = object().shape({
   login: string().required('Pole obowiązkowe'),
   password: string().required('Pole obowiązkowe'),
-  rememberMe: string(),
+  company: boolean(),
+  nip: string().when('company', {
+    is: true,
+    then: string().required('Pole obowiązkowe'),
+  }),
 });
 
 const loginUser = (login: string, password: string) => {
@@ -87,43 +94,66 @@ export const Login = () => {
             login: '',
             password: '',
             rememberMe: false,
+            company: false,
+            nip: '',
           }}
           onSubmit={handleSubmit}
           validationSchema={Validation}
         >
-          {() => (
-            <Form className={styles.loginForm}>
-              <FormInputField
-                type="text"
-                name="login"
-                placeholder="login"
-                icon={<UserIcon />}
-              />
-              <FormInputField
-                type="password"
-                name="password"
-                placeholder="hasło"
-                icon={<LockIcon />}
-              />
-              <div className={styles.otherInputs}>
-                <FormInputCheckbox name="remember-me" label="Zapamiętaj mnie" />
+          {(formikProps) => {
+            const { values } = formikProps;
+            return (
+              <Form className={styles.loginForm}>
+                <FormInputField
+                  type="text"
+                  name="login"
+                  placeholder="login"
+                  icon={<UserIcon />}
+                />
+                <FormInputField
+                  type="password"
+                  name="password"
+                  placeholder="hasło"
+                  icon={<LockIcon />}
+                />
+                <div className={styles.otherInputs}>
+                  <div className={styles.otherInputs__checkboxes}>
+                    <FormInputCheckbox
+                      name="remember-me"
+                      label="Zapamiętaj mnie"
+                    />
+                    <FormInputCheckbox name="company" label="Firma?" />
+                  </div>
+                  <button
+                    type="button"
+                    className={styles.otherInputs__forgotPassword}
+                  >
+                    Zapomniałeś hasła?
+                  </button>
+                </div>
+                {values.company === true ? (
+                  <FormInputField
+                    type="text"
+                    name="nip"
+                    placeholder="nip"
+                    icon={<FingerPrintIcon />}
+                  />
+                ) : (
+                  ''
+                )}
                 <button
-                  type="button"
-                  className={styles.otherInputs__forgotPassword}
+                  type="submit"
+                  className={`${styles.loginForm__submit} ${
+                    isAccount === false
+                      ? styles['loginForm__submit--error']
+                      : ''
+                  }`}
                 >
-                  Zapomniałeś hasła?
+                  Zaloguj się
                 </button>
-              </div>
-              <button
-                type="submit"
-                className={`${styles.loginForm__submit} ${
-                  isAccount === false ? styles['loginForm__submit--error'] : ''
-                }`}
-              >
-                Zaloguj się
-              </button>
-            </Form>
-          )}
+              </Form>
+            );
+          }}
         </Formik>
         <div
           className={`${styles.loginError} ${

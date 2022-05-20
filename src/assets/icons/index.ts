@@ -1,5 +1,6 @@
-export { LockIcon } from './LockIcon';
 export { UserIcon } from './UserIcon';
+export { LockIcon } from './LockIcon';
+export { FingerPrintIcon } from './FingerPrintIcon';
 export { FacebookIcon } from './FacebookIcon';
 export { GoogleIcon } from './GoogleIcon';
 export { ErrorIcon } from './ErrorIcon';

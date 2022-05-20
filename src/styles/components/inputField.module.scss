@@ -11,6 +11,8 @@
   &__label {
     position: absolute;
     left: 1.25rem;
+    height: 100%;
+    @include mixins.flex(center, center, row);
   }
 
   &__field {
