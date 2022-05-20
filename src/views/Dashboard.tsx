@@ -29,7 +29,7 @@ export const Dashboard = () => {
     setLoading(true);
     const fetchPets = async () => {
       await axios
-        .get('./pets.json')
+        .get('/pets.json')
         .then((response: AxiosResponse<PetObject[]>) => response.data)
         .then((data) => {
           setPets(data);
