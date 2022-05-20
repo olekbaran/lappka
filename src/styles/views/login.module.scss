@@ -20,7 +20,7 @@
 
   @media screen and (min-width: vars.$md) {
     width: 39rem;
-    height: 40rem;
+    min-height: 40rem;
     box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1),
       0 8px 10px -6px rgb(0 0 0 / 0.1);
   }
@@ -78,6 +78,11 @@
       @include mixins.flex(space-between, center, row);
     }
 
+    &__checkboxes {
+      gap: 1rem;
+      @include mixins.flex(flex-start, flex-start, column);
+    }
+
     &__forgotPassword {
       margin-top: 1.5rem;
       background: none;
@@ -115,9 +120,7 @@
   display: none;
 
   &--show {
-    position: absolute;
-    bottom: 17%;
-    margin-top: 0.75rem;
+    margin-top: 1rem;
     gap: 0.5rem;
     @include mixins.flex(center, center, row);
   }
