@@ -9,7 +9,7 @@ Check out demo here: https://lappka.vercel.app/
 To sign in, use login and password below:
 | Login | Password |
 | :------: | :-----: |
-| admin    | admin |
+| admin | admin |
 
 This project was built using React, SCSS with BEM methodology and CSS Modules.
 

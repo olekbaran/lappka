@@ -1,17 +1,31 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { Formik, Form, FormikHelpers } from 'formik';
+import { object, string } from 'yup';
 
 import styles from 'styles/views/login.module.scss';
 import { appRoutes } from 'app';
+import { FormInputField, FormInputCheckbox } from 'components';
 import { Images } from 'assets/images';
-import { InputField, InputCheckbox } from 'components';
 import {
-  UserIcon,
-  LockIcon,
   FacebookIcon,
   GoogleIcon,
+  UserIcon,
+  LockIcon,
   ErrorIcon,
 } from 'assets/icons';
+
+interface formValues {
+  login: string;
+  password: string;
+  rememberMe: boolean;
+}
+
+const Validation = object().shape({
+  login: string().required('Pole obowiązkowe'),
+  password: string().required('Pole obowiązkowe'),
+  rememberMe: string(),
+});
 
 const loginUser = (login: string, password: string) => {
   if (login === 'admin' && password === 'admin') {
@@ -22,47 +36,28 @@ const loginUser = (login: string, password: string) => {
 
 export const Login = () => {
   const navigate = useNavigate();
-  const [login, setLogin] = useState('');
-  const [password, setPassword] = useState('');
-  const [rememberMe, setRememberMe] = useState('');
-  const [isLoginEmpty, setIsLoginEmpty] = useState(false);
-  const [isPasswordEmpty, setIsPasswordEmpty] = useState(false);
   const [isAccount, setIsAccount] = useState(true);
 
-  const handleSubmit = (event: React.ChangeEvent<HTMLFormElement>) => {
-    event.preventDefault();
-    if (login.length === 0) {
-      setIsLoginEmpty(true);
-      setTimeout(() => {
-        setIsLoginEmpty(false);
-      }, 1400);
-    }
-    if (password.length === 0) {
-      setIsPasswordEmpty(true);
-      setTimeout(() => {
-        setIsPasswordEmpty(false);
-      }, 1400);
-    }
-    if (login && password) {
-      const token = loginUser(login, password);
-      if (token) {
-        if (rememberMe === 'on') {
-          localStorage.setItem('token', `${token}`);
-        } else {
-          sessionStorage.setItem('token', `${token}`);
-        }
-        navigate(appRoutes.dashboard.slug);
+  const handleSubmit = (
+    values: formValues,
+    { resetForm }: FormikHelpers<formValues>
+  ) => {
+    const token = loginUser(values.login, values.password);
+    if (token) {
+      if (values.rememberMe === true) {
+        localStorage.setItem('token', `${token}`);
       } else {
-        localStorage.removeItem('token');
-        sessionStorage.removeItem('token');
-        setIsAccount(false);
-        setTimeout(() => {
-          setIsAccount(true);
-          setLogin('');
-          setPassword('');
-          event.target.reset();
-        }, 2200);
+        sessionStorage.setItem('token', `${token}`);
       }
+      navigate(appRoutes.dashboard.slug);
+    } else {
+      localStorage.removeItem('token');
+      sessionStorage.removeItem('token');
+      setIsAccount(false);
+      setTimeout(() => {
+        setIsAccount(true);
+        resetForm();
+      }, 2200);
     }
   };
 
@@ -87,50 +82,49 @@ export const Login = () => {
           </span>
           <span className={styles.headingText__mobile}>Zaloguj się</span>
         </h1>
-        <form onSubmit={handleSubmit} className={styles.loginForm}>
-          <InputField
-            type="text"
-            name="login"
-            placeholder="login"
-            icon={<UserIcon />}
-            isEmpty={isLoginEmpty}
-            onChange={(e) => {
-              setLogin(e.target.value);
-            }}
-          />
-          <InputField
-            type="password"
-            name="password"
-            placeholder="hasło"
-            icon={<LockIcon />}
-            isEmpty={isPasswordEmpty}
-            onChange={(e) => {
-              setPassword(e.target.value);
-            }}
-          />
-          <div className={styles.otherInputs}>
-            <InputCheckbox
-              name="remember-me"
-              label="Zapamiętaj mnie"
-              onChange={(e) => {
-                setRememberMe(e.target.value);
-              }}
-            />
-            <button
-              type="button"
-              className={styles.otherInputs__forgotPassword}
-            >
-              Zapomniałeś hasła?
-            </button>
-          </div>
-          <button
-            className={`${styles.loginForm__submit} ${
-              isAccount === false ? styles['loginForm__submit--error'] : ''
-            }`}
-          >
-            Zaloguj się
-          </button>
-        </form>
+        <Formik
+          initialValues={{
+            login: '',
+            password: '',
+            rememberMe: false,
+          }}
+          onSubmit={handleSubmit}
+          validationSchema={Validation}
+        >
+          {() => (
+            <Form className={styles.loginForm}>
+              <FormInputField
+                type="text"
+                name="login"
+                placeholder="login"
+                icon={<UserIcon />}
+              />
+              <FormInputField
+                type="password"
+                name="password"
+                placeholder="hasło"
+                icon={<LockIcon />}
+              />
+              <div className={styles.otherInputs}>
+                <FormInputCheckbox name="remember-me" label="Zapamiętaj mnie" />
+                <button
+                  type="button"
+                  className={styles.otherInputs__forgotPassword}
+                >
+                  Zapomniałeś hasła?
+                </button>
+              </div>
+              <button
+                type="submit"
+                className={`${styles.loginForm__submit} ${
+                  isAccount === false ? styles['loginForm__submit--error'] : ''
+                }`}
+              >
+                Zaloguj się
+              </button>
+            </Form>
+          )}
+        </Formik>
         <div
           className={`${styles.loginError} ${
             isAccount === false ? styles['loginError--show'] : ''
